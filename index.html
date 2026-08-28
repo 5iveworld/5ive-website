@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>5IVE WORLD</title>
 
+
   <style>
+
+    /* =========================
+       RESET
+    ========================== */
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
+
 
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -23,23 +36,39 @@
       color: white;
     }
 
+
     body.cart-open {
       overflow: hidden;
     }
 
-    /* NAVIGATION */
+
+    button {
+      font-family: inherit;
+    }
+
+
+    /* =========================
+       NAVIGATION
+    ========================== */
+
     nav {
       width: 100%;
       padding: 20px 6%;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       background: #050505;
+
       border-bottom: 1px solid #222;
+
       position: sticky;
       top: 0;
+
       z-index: 1000;
     }
+
 
     .logo {
       font-size: 24px;
@@ -47,16 +76,19 @@
       letter-spacing: 5px;
     }
 
+
     .nav-right {
       display: flex;
       align-items: center;
       gap: 25px;
     }
 
+
     .nav-links {
       display: flex;
       gap: 25px;
     }
+
 
     .nav-links a {
       color: white;
@@ -65,714 +97,1509 @@
       font-weight: bold;
     }
 
+
     .nav-links a:hover {
-      color: #aaa;
+      color: #999;
     }
 
+
     .cart-button {
-      background: transparent;
-      color: white;
-      border: 1px solid #555;
-      width: auto;
-      padding: 10px 15px;
+      background: white;
+      color: black;
+
+      border: none;
+
+      padding: 12px 16px;
+
+      font-weight: bold;
       cursor: pointer;
+
       font-size: 12px;
     }
 
+
     .cart-button:hover {
-      background: white;
-      color: black;
+      background: #cccccc;
     }
 
-    /* HERO */
+
+    /* =========================
+       HERO
+    ========================== */
+
     .hero {
       min-height: 70vh;
+
       display: flex;
       justify-content: center;
       align-items: center;
+
       text-align: center;
+
       padding: 80px 20px;
-      background: radial-gradient(
-        circle at center,
-        #252525 0%,
-        #111 45%,
-        #050505 80%
-      );
+
+      background:
+        radial-gradient(
+          circle at center,
+          #252525 0%,
+          #111111 45%,
+          #050505 80%
+        );
     }
+
 
     .hero h1 {
       font-size: clamp(50px, 10vw, 120px);
+
       letter-spacing: 10px;
+
       margin-bottom: 20px;
     }
 
+
     .hero p {
-      color: #aaa;
+      color: #aaaaaa;
+
       font-size: 14px;
+
       letter-spacing: 2px;
+
       margin-bottom: 30px;
     }
 
+
     .hero-button {
       display: inline-block;
+
       background: white;
       color: black;
+
       text-decoration: none;
+
       padding: 15px 35px;
+
       font-weight: bold;
     }
 
-    /* SECTIONS */
+
+    .hero-button:hover {
+      background: #cccccc;
+    }
+
+
+    /* =========================
+       SECTIONS
+    ========================== */
+
     section {
       padding: 80px 6%;
     }
 
+
     .section-title {
       font-size: 32px;
+
       letter-spacing: 2px;
+
       margin-bottom: 10px;
     }
 
+
     .section-subtitle {
-      color: #999;
+      color: #999999;
+
       font-size: 13px;
+
       letter-spacing: 1px;
+
       margin-bottom: 35px;
     }
 
-    /* PRODUCT GRID */
+
+    /* =========================
+       PRODUCT GRID
+    ========================== */
+
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(240px, 1fr));
+
       gap: 20px;
     }
 
+
     .product-card {
       background: #101010;
-      border: 1px solid #333;
+
+      border: 1px solid #333333;
+
       overflow: hidden;
+
       transition: 0.3s;
     }
 
+
     .product-card:hover {
       transform: translateY(-5px);
-      border-color: #777;
+
+      border-color: #777777;
     }
+
 
     .product-card img {
       width: 100%;
+
       height: 330px;
+
       object-fit: cover;
+
       display: block;
+
       background: #1a1a1a;
     }
+
 
     .product-info {
       padding: 20px;
     }
 
+
     .product-info h3 {
       font-size: 15px;
+
       letter-spacing: 1px;
+
       margin-bottom: 12px;
     }
 
+
     .price {
       font-size: 18px;
+
       margin-bottom: 10px;
     }
 
+
     .details {
-      color: #999;
+      color: #999999;
+
       font-size: 12px;
+
       margin-bottom: 18px;
     }
 
+
     .add-button {
       width: 100%;
+
       padding: 14px;
+
       border: none;
+
       background: white;
+
       color: black;
+
       font-weight: bold;
+
       cursor: pointer;
     }
 
+
     .add-button:hover {
-      background: #ccc;
+      background: #cccccc;
     }
 
-    /* DROP 02 */
+
+    /* =========================
+       DROP 02
+    ========================== */
+
     .drop-section {
       background: #0d0d0d;
-      border-top: 1px solid #222;
-      border-bottom: 1px solid #222;
+
+      border-top: 1px solid #222222;
+
+      border-bottom: 1px solid #222222;
     }
+
 
     .image-container {
       position: relative;
     }
 
+
     .coming-soon {
       position: absolute;
+
       top: 12px;
       left: 12px;
+
       background: white;
+
       color: black;
+
       padding: 8px 12px;
+
       font-size: 11px;
+
       font-weight: bold;
+
       z-index: 10;
     }
 
-    /* REVIEWS */
+
+    /* =========================
+       REVIEWS
+    ========================== */
+
     .review-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+
       gap: 20px;
     }
 
+
     .review-card {
-      background: #111;
-      border: 1px solid #333;
+      background: #111111;
+
+      border: 1px solid #333333;
+
       overflow: hidden;
     }
 
+
     .review-card img {
       width: 100%;
+
       height: 350px;
+
       object-fit: cover;
+
       display: block;
+
+      background: #1a1a1a;
     }
 
-    /* THANK YOU */
+
+    /* =========================
+       THANK YOU
+    ========================== */
+
     .thank-you {
       text-align: center;
+
       padding: 100px 20px;
-      background: radial-gradient(
-        circle at center,
-        #202020 0%,
-        #050505 75%
-      );
+
+      background:
+        radial-gradient(
+          circle at center,
+          #202020 0%,
+          #050505 75%
+        );
     }
+
 
     .thank-you h2 {
       font-size: clamp(30px, 5vw, 55px);
+
       letter-spacing: 3px;
+
       margin-bottom: 20px;
     }
+
 
     .thank-you p {
       max-width: 650px;
+
       margin: auto;
-      color: #aaa;
+
+      color: #aaaaaa;
+
       line-height: 1.8;
+
       font-size: 15px;
     }
 
-    /* FOOTER */
+
+    /* =========================
+       FOOTER
+    ========================== */
+
     footer {
       text-align: center;
+
       padding: 30px;
-      color: #777;
-      border-top: 1px solid #222;
+
+      color: #777777;
+
+      border-top: 1px solid #222222;
+
       font-size: 12px;
     }
 
-    /* CART OVERLAY */
+
+    /* =========================
+       CART DARK BACKGROUND
+    ========================== */
+
     .cart-overlay {
       position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.65);
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      background:
+        rgba(0, 0, 0, 0.7);
+
       opacity: 0;
+
       visibility: hidden;
+
       transition: 0.3s;
+
       z-index: 2000;
     }
 
+
     .cart-overlay.active {
       opacity: 1;
+
       visibility: visible;
     }
 
-    /* SLIDE OUT CART */
+
+    /* =========================
+       SLIDE OUT CART
+    ========================== */
+
     .cart-panel {
       position: fixed;
+
       top: 0;
-      right: -450px;
-      width: min(420px, 100%);
+      right: 0;
+
+      width: 420px;
+
+      max-width: 100%;
+
       height: 100vh;
+
       background: #0b0b0b;
-      border-left: 1px solid #333;
+
+      border-left: 1px solid #333333;
+
       z-index: 3000;
-      transition: right 0.35s ease;
+
+      transform: translateX(100%);
+
+      transition:
+        transform 0.4s ease;
+
       display: flex;
+
       flex-direction: column;
     }
 
+
     .cart-panel.active {
-      right: 0;
+      transform: translateX(0);
     }
+
 
     .cart-header {
       display: flex;
+
       justify-content: space-between;
+
       align-items: center;
+
       padding: 25px 20px;
-      border-bottom: 1px solid #333;
+
+      border-bottom:
+        1px solid #333333;
     }
+
 
     .cart-header h2 {
       font-size: 22px;
+
       letter-spacing: 2px;
     }
 
+
     .close-cart {
-      width: auto;
+      width: 45px;
+
+      height: 45px;
+
       background: transparent;
+
       color: white;
-      font-size: 28px;
-      padding: 0 10px;
+
+      border: none;
+
+      font-size: 32px;
+
+      cursor: pointer;
     }
+
 
     .cart-items {
       flex: 1;
+
       overflow-y: auto;
+
       padding: 20px;
     }
 
+
     .empty-cart {
-      color: #999;
+      color: #999999;
+
       text-align: center;
-      margin-top: 50px;
+
+      margin-top: 60px;
     }
+
 
     .cart-item {
       display: flex;
+
       gap: 15px;
+
       padding-bottom: 20px;
+
       margin-bottom: 20px;
-      border-bottom: 1px solid #222;
+
+      border-bottom:
+        1px solid #222222;
     }
 
+
     .cart-item img {
-      width: 80px;
-      height: 100px;
+      width: 85px;
+
+      height: 105px;
+
       object-fit: cover;
-      background: #222;
+
+      background: #222222;
+
+      flex-shrink: 0;
     }
+
 
     .cart-item-info {
       flex: 1;
     }
 
+
     .cart-item-name {
       font-size: 14px;
+
+      font-weight: bold;
+
       margin-bottom: 8px;
     }
 
+
     .cart-item-price {
-      color: #aaa;
+      color: #aaaaaa;
+
       font-size: 14px;
+
       margin-bottom: 12px;
     }
 
+
     .quantity-controls {
       display: flex;
+
       align-items: center;
+
       gap: 10px;
     }
 
+
     .quantity-controls button {
       width: 30px;
+
       height: 30px;
+
       padding: 0;
-      background: #222;
+
+      background: #222222;
+
       color: white;
-      border: 1px solid #444;
+
+      border: 1px solid #444444;
+
+      cursor: pointer;
+
+      font-size: 16px;
     }
+
 
     .quantity-controls span {
       min-width: 20px;
+
       text-align: center;
     }
 
+
     .remove-button {
-      background: transparent;
-      color: #999;
-      border: none;
-      padding: 0;
-      margin-top: 12px;
       width: auto;
-      font-size: 12px;
+
+      background: transparent;
+
+      color: #999999;
+
+      border: none;
+
+      padding: 0;
+
+      margin-top: 12px;
+
+      cursor: pointer;
+
+      font-size: 11px;
+
       text-decoration: underline;
     }
 
+
     .cart-footer {
       padding: 20px;
-      border-top: 1px solid #333;
+
+      border-top:
+        1px solid #333333;
+
+      background: #0b0b0b;
     }
+
 
     .cart-total {
       display: flex;
+
       justify-content: space-between;
+
       font-size: 20px;
+
       margin-bottom: 20px;
     }
 
+
     .checkout-button {
       width: 100%;
+
       padding: 16px;
+
       background: white;
+
       color: black;
+
       border: none;
+
       font-weight: bold;
+
       cursor: pointer;
     }
 
+
+    .checkout-button:hover {
+      background: #cccccc;
+    }
+
+
     .checkout-button:disabled {
       opacity: 0.5;
+
       cursor: not-allowed;
     }
 
-    /* MOBILE */
-    @media (max-width: 600px) {
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 700px) {
+
       nav {
-        padding: 18px 5%;
+        padding: 16px 5%;
       }
+
 
       .logo {
-        font-size: 17px;
-        letter-spacing: 3px;
+        font-size: 16px;
+
+        letter-spacing: 2px;
       }
 
-      .nav-right {
-        gap: 10px;
-      }
 
       .nav-links {
-        gap: 10px;
+        display: none;
       }
 
-      .nav-links a {
-        font-size: 10px;
-      }
 
       .cart-button {
-        padding: 8px 10px;
-        font-size: 10px;
+        padding: 10px 12px;
+
+        font-size: 11px;
       }
 
-      .product-card img,
+
+      section {
+        padding: 60px 5%;
+      }
+
+
+      .product-card img {
+        height: 300px;
+      }
+
+
       .review-card img {
         height: 300px;
       }
+
     }
+
   </style>
+
 </head>
+
+
 
 <body>
 
-  <!-- NAVIGATION -->
+
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+
   <nav>
-    <div class="logo">5IVE WORLD</div>
+
+    <div class="logo">
+
+      5IVE WORLD
+
+    </div>
+
 
     <div class="nav-right">
+
+
       <div class="nav-links">
-        <a href="#shop">SHOP</a>
-        <a href="#drop02">DROP 02</a>
-        <a href="#reviews">REVIEWS</a>
+
+        <a href="#shop">
+          SHOP
+        </a>
+
+        <a href="#drop02">
+          DROP 02
+        </a>
+
+        <a href="#reviews">
+          REVIEWS
+        </a>
+
       </div>
 
-      <button class="cart-button" onclick="openCart()">
-        🛒 CART (<span id="cart-count">0</span>)
+
+      <button
+        class="cart-button"
+        onclick="openCart()"
+      >
+
+        CART
+        (<span id="cart-count">0</span>)
+
       </button>
+
+
     </div>
+
   </nav>
 
 
-  <!-- HERO -->
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
   <section class="hero">
+
     <div>
-      <h1>5IVE WORLD</h1>
-      <p>MORE THAN A BRAND. IT'S A WORLD.</p>
-      <a href="#shop" class="hero-button">SHOP NOW</a>
+
+      <h1>
+
+        5IVE WORLD
+
+      </h1>
+
+
+      <p>
+
+        MORE THAN A BRAND. IT'S A WORLD.
+
+      </p>
+
+
+      <a
+        href="#shop"
+        class="hero-button"
+      >
+
+        SHOP NOW
+
+      </a>
+
     </div>
+
   </section>
 
 
-  <!-- SHOP -->
+
+  <!-- =========================
+       SHOP
+  ========================== -->
+
   <section id="shop">
 
-    <h2 class="section-title">SHOP THE COLLECTION</h2>
+
+    <h2 class="section-title">
+
+      SHOP THE COLLECTION
+
+    </h2>
+
 
     <p class="section-subtitle">
+
       LIMITED STOCK • 5IVE WORLD
+
     </p>
+
+
 
     <div class="product-grid">
 
+
+      <!-- BLACK SHORTS -->
+
       <div class="product-card">
-        <img src="short-black.jpeg" alt="Black 5IVE Shorts">
+
+        <img
+          src="short-black.jpeg"
+          alt="Black 5IVE Shorts"
+        >
+
+
         <div class="product-info">
-          <h3>BLACK 5IVE SHORTS</h3>
-          <p class="price">$50</p>
-          <p class="details">LIMITED STOCK</p>
-          <button class="add-button"
-            onclick="addToCart('BLACK 5IVE SHORTS', 50, 'short-black.jpeg')">
+
+          <h3>
+            BLACK 5IVE SHORTS
+          </h3>
+
+          <p class="price">
+            $50
+          </p>
+
+          <p class="details">
+            LIMITED STOCK
+          </p>
+
+
+          <button
+            class="add-button"
+            onclick="addToCart('BLACK 5IVE SHORTS', 50, 'short-black.jpeg')"
+          >
+
             ADD TO CART
+
           </button>
+
         </div>
+
       </div>
 
 
+
+      <!-- GRAY BLUE SHORTS -->
+
       <div class="product-card">
-        <img src="short-gray-blue.jpeg" alt="Gray Blue 5IVE Shorts">
+
+        <img
+          src="short-gray-blue.jpeg"
+          alt="Gray Blue 5IVE Shorts"
+        >
+
+
         <div class="product-info">
-          <h3>GRAY BLUE 5IVE SHORTS</h3>
-          <p class="price">$50</p>
-          <p class="details">LIMITED STOCK</p>
-          <button class="add-button"
-            onclick="addToCart('GRAY BLUE 5IVE SHORTS', 50, 'short-gray-blue.jpeg')">
+
+          <h3>
+            GRAY BLUE 5IVE SHORTS
+          </h3>
+
+          <p class="price">
+            $50
+          </p>
+
+          <p class="details">
+            LIMITED STOCK
+          </p>
+
+
+          <button
+            class="add-button"
+            onclick="addToCart('GRAY BLUE 5IVE SHORTS', 50, 'short-gray-blue.jpeg')"
+          >
+
             ADD TO CART
+
           </button>
+
         </div>
+
       </div>
 
 
+
+      <!-- GRAY SHORTS -->
+
       <div class="product-card">
-        <img src="short-gray.jpeg" alt="Gray 5IVE Shorts">
+
+        <img
+          src="short-gray.jpeg"
+          alt="Gray 5IVE Shorts"
+        >
+
+
         <div class="product-info">
-          <h3>GRAY 5IVE SHORTS</h3>
-          <p class="price">$50</p>
-          <p class="details">LIMITED STOCK</p>
-          <button class="add-button"
-            onclick="addToCart('GRAY 5IVE SHORTS', 50, 'short-gray.jpeg')">
+
+          <h3>
+            GRAY 5IVE SHORTS
+          </h3>
+
+          <p class="price">
+            $50
+          </p>
+
+          <p class="details">
+            LIMITED STOCK
+          </p>
+
+
+          <button
+            class="add-button"
+            onclick="addToCart('GRAY 5IVE SHORTS', 50, 'short-gray.jpeg')"
+          >
+
             ADD TO CART
+
           </button>
+
         </div>
+
       </div>
 
 
+
+      <!-- GROUP SHORTS -->
+
       <div class="product-card">
-        <img src="short-group.jpeg" alt="5IVE Shorts Collection">
+
+        <img
+          src="short-group.jpeg"
+          alt="5IVE Shorts Collection"
+        >
+
+
         <div class="product-info">
-          <h3>5IVE SHORTS COLLECTION</h3>
-          <p class="price">$50</p>
-          <p class="details">LIMITED STOCK</p>
-          <button class="add-button"
-            onclick="addToCart('5IVE SHORTS COLLECTION', 50, 'short-group.jpeg')">
+
+          <h3>
+            5IVE SHORTS COLLECTION
+          </h3>
+
+          <p class="price">
+            $50
+          </p>
+
+          <p class="details">
+            LIMITED STOCK
+          </p>
+
+
+          <button
+            class="add-button"
+            onclick="addToCart('5IVE SHORTS COLLECTION', 50, 'short-group.jpeg')"
+          >
+
             ADD TO CART
+
           </button>
+
         </div>
+
       </div>
 
 
+
+      <!-- PINK SHORTS -->
+
       <div class="product-card">
-        <img src="short-pink.jpeg.PNG" alt="Pink 5IVE Shorts">
+
+        <img
+          src="short-pink.jpeg.PNG"
+          alt="Pink 5IVE Shorts"
+        >
+
+
         <div class="product-info">
-          <h3>PINK 5IVE SHORTS</h3>
-          <p class="price">$50</p>
-          <p class="details">LIMITED STOCK</p>
-          <button class="add-button"
-            onclick="addToCart('PINK 5IVE SHORTS', 50, 'short-pink.jpeg.PNG')">
+
+          <h3>
+            PINK 5IVE SHORTS
+          </h3>
+
+          <p class="price">
+            $50
+          </p>
+
+          <p class="details">
+            LIMITED STOCK
+          </p>
+
+
+          <button
+            class="add-button"
+            onclick="addToCart('PINK 5IVE SHORTS', 50, 'short-pink.jpeg.PNG')"
+          >
+
             ADD TO CART
+
           </button>
+
         </div>
+
       </div>
 
 
+
+      <!-- RED SHORTS -->
+
       <div class="product-card">
-        <img src="short-red.jpeg" alt="Red 5IVE Shorts">
+
+        <img
+          src="short-red.jpeg"
+          alt="Red 5IVE Shorts"
+        >
+
+
         <div class="product-info">
-          <h3>RED 5IVE SHORTS</h3>
-          <p class="price">$50</p>
-          <p class="details">LIMITED STOCK</p>
-          <button class="add-button"
-            onclick="addToCart('RED 5IVE SHORTS', 50, 'short-red.jpeg')">
+
+          <h3>
+            RED 5IVE SHORTS
+          </h3>
+
+          <p class="price">
+            $50
+          </p>
+
+          <p class="details">
+            LIMITED STOCK
+          </p>
+
+
+          <button
+            class="add-button"
+            onclick="addToCart('RED 5IVE SHORTS', 50, 'short-red.jpeg')"
+          >
+
             ADD TO CART
+
           </button>
+
         </div>
+
       </div>
 
 
+
+      <!-- WHITE SHORTS -->
+
       <div class="product-card">
-        <img src="short-white.jpeg" alt="White 5IVE Shorts">
+
+        <img
+          src="short-white.jpeg"
+          alt="White 5IVE Shorts"
+        >
+
+
         <div class="product-info">
-          <h3>WHITE 5IVE SHORTS</h3>
-          <p class="price">$50</p>
-          <p class="details">LIMITED STOCK</p>
-          <button class="add-button"
-            onclick="addToCart('WHITE 5IVE SHORTS', 50, 'short-white.jpeg')">
+
+          <h3>
+            WHITE 5IVE SHORTS
+          </h3>
+
+          <p class="price">
+            $50
+          </p>
+
+          <p class="details">
+            LIMITED STOCK
+          </p>
+
+
+          <button
+            class="add-button"
+            onclick="addToCart('WHITE 5IVE SHORTS', 50, 'short-white.jpeg')"
+          >
+
             ADD TO CART
+
           </button>
+
         </div>
+
       </div>
+
 
     </div>
+
   </section>
 
 
-  <!-- DROP 02 -->
-  <section class="drop-section" id="drop02">
 
-    <h2 class="section-title">DROP 02</h2>
+  <!-- =========================
+       DROP 02
+  ========================== -->
+
+  <section
+    class="drop-section"
+    id="drop02"
+  >
+
+
+    <h2 class="section-title">
+
+      DROP 02
+
+    </h2>
+
 
     <p class="section-subtitle">
+
       NEW 5IVE HOODIES • COMING SOON
+
     </p>
+
+
 
     <div class="product-grid">
 
+
+      <!-- BLUE HOODIE -->
+
       <div class="product-card">
+
         <div class="image-container">
-          <div class="coming-soon">COMING SOON</div>
-          <img src="blue-hoodie.jpeg.png" alt="Blue 5IVE Hoodie">
+
+          <div class="coming-soon">
+            COMING SOON
+          </div>
+
+
+          <img
+            src="blue-hoodie.jpeg.png"
+            alt="Blue 5IVE Hoodie"
+          >
+
         </div>
+
+
         <div class="product-info">
-          <h3>BLUE 5IVE HOODIE</h3>
-          <p class="price">COMING SOON</p>
+
+          <h3>
+            BLUE 5IVE HOODIE
+          </h3>
+
+          <p class="price">
+            COMING SOON
+          </p>
+
         </div>
+
       </div>
 
 
+
+      <!-- GREEN HOODIE -->
+
       <div class="product-card">
+
         <div class="image-container">
-          <div class="coming-soon">COMING SOON</div>
-          <img src="green-hoodie.jpeg.png" alt="Green 5IVE Hoodie">
+
+          <div class="coming-soon">
+            COMING SOON
+          </div>
+
+
+          <img
+            src="green-hoodie.jpeg.png"
+            alt="Green 5IVE Hoodie"
+          >
+
         </div>
+
+
         <div class="product-info">
-          <h3>GREEN 5IVE HOODIE</h3>
-          <p class="price">COMING SOON</p>
+
+          <h3>
+            GREEN 5IVE HOODIE
+          </h3>
+
+          <p class="price">
+            COMING SOON
+          </p>
+
         </div>
+
       </div>
 
 
+
+      <!-- PINK HOODIE -->
+
       <div class="product-card">
+
         <div class="image-container">
-          <div class="coming-soon">COMING SOON</div>
-          <img src="pink-hoodie.png" alt="Pink 5IVE Hoodie">
+
+          <div class="coming-soon">
+            COMING SOON
+          </div>
+
+
+          <img
+            src="pink-hoodie.png"
+            alt="Pink 5IVE Hoodie"
+          >
+
         </div>
+
+
         <div class="product-info">
-          <h3>PINK 5IVE HOODIE</h3>
-          <p class="price">COMING SOON</p>
+
+          <h3>
+            PINK 5IVE HOODIE
+          </h3>
+
+          <p class="price">
+            COMING SOON
+          </p>
+
         </div>
+
       </div>
 
 
+
+      <!-- PURPLE HOODIE -->
+
       <div class="product-card">
+
         <div class="image-container">
-          <div class="coming-soon">COMING SOON</div>
-          <img src="purple-hoodie.jpeg.png" alt="Purple 5IVE Hoodie">
+
+          <div class="coming-soon">
+            COMING SOON
+          </div>
+
+
+          <img
+            src="purple-hoodie.jpeg.png"
+            alt="Purple 5IVE Hoodie"
+          >
+
         </div>
+
+
         <div class="product-info">
-          <h3>PURPLE 5IVE HOODIE</h3>
-          <p class="price">COMING SOON</p>
+
+          <h3>
+            PURPLE 5IVE HOODIE
+          </h3>
+
+          <p class="price">
+            COMING SOON
+          </p>
+
         </div>
+
       </div>
 
 
+
+      <!-- RED HOODIE -->
+
       <div class="product-card">
+
         <div class="image-container">
-          <div class="coming-soon">COMING SOON</div>
-          <img src="red-hoodie.jpeg.png" alt="Red 5IVE Hoodie">
+
+          <div class="coming-soon">
+            COMING SOON
+          </div>
+
+
+          <img
+            src="red-hoodie.jpeg.png"
+            alt="Red 5IVE Hoodie"
+          >
+
         </div>
+
+
         <div class="product-info">
-          <h3>RED 5IVE HOODIE</h3>
-          <p class="price">COMING SOON</p>
+
+          <h3>
+            RED 5IVE HOODIE
+          </h3>
+
+          <p class="price">
+            COMING SOON
+          </p>
+
         </div>
+
       </div>
+
 
     </div>
+
   </section>
 
 
-  <!-- REVIEWS -->
+
+  <!-- =========================
+       CUSTOMER REVIEWS
+  ========================== -->
+
   <section id="reviews">
 
-    <h2 class="section-title">CUSTOMER REVIEWS</h2>
+
+    <h2 class="section-title">
+
+      CUSTOMER REVIEWS
+
+    </h2>
+
 
     <p class="section-subtitle">
+
       REAL SUPPORT FROM THE 5IVE WORLD FAMILY
+
     </p>
+
+
 
     <div class="review-grid">
 
-      <div class="review-card">
-        <img src="review1.jpeg.PNG" alt="Customer Review 1">
-      </div>
 
       <div class="review-card">
-        <img src="review2.jpeg.PNG" alt="Customer Review 2">
+
+        <img
+          src="review1.jpeg.PNG"
+          alt="Customer Review 1"
+        >
+
       </div>
 
-      <div class="review-card">
-        <img src="review3.jpeg.PNG" alt="Customer Review 3">
-      </div>
 
       <div class="review-card">
-        <img src="review4.jpeg.PNG" alt="Customer Review 4">
+
+        <img
+          src="review2.jpeg.PNG"
+          alt="Customer Review 2"
+        >
+
       </div>
 
-      <div class="review-card">
-        <img src="review5.jpeg.PNG" alt="Customer Review 5">
-      </div>
 
       <div class="review-card">
-        <img src="review6.jpeg.PNG" alt="Customer Review 6">
+
+        <img
+          src="review3.jpeg.PNG"
+          alt="Customer Review 3"
+        >
+
       </div>
+
+
+      <div class="review-card">
+
+        <img
+          src="review4.jpeg.PNG"
+          alt="Customer Review 4"
+        >
+
+      </div>
+
+
+      <div class="review-card">
+
+        <img
+          src="review5.jpeg.PNG"
+          alt="Customer Review 5"
+        >
+
+      </div>
+
+
+      <div class="review-card">
+
+        <img
+          src="review6.jpeg.PNG"
+          alt="Customer Review 6"
+        >
+
+      </div>
+
 
     </div>
+
   </section>
 
 
-  <!-- THANK YOU -->
+
+  <!-- =========================
+       THANK YOU
+  ========================== -->
+
   <section class="thank-you">
-    <h2>THANK YOU FOR YOUR SUPPORT</h2>
+
+
+    <h2>
+
+      THANK YOU FOR YOUR SUPPORT
+
+    </h2>
+
 
     <p>
-      Thank you to everyone who supports 5IVE WORLD.
-      Every order, share, and message means a lot.
-      This is only the beginning. More drops are coming soon.
+
+      Thank you to everyone who supports
+      5IVE WORLD.
+
+      Every order, share, and message
+      means a lot.
+
+      This is only the beginning.
+
+      More drops are coming soon.
+
       Welcome to the 5IVE WORLD.
+
     </p>
+
   </section>
 
 
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
   <footer>
+
     © 2026 5IVE WORLD • ALL RIGHTS RESERVED
+
   </footer>
 
 
-  <!-- CART OVERLAY -->
-  <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+
+  <!-- =========================
+       CART OVERLAY
+  ========================== -->
+
+  <div
+    class="cart-overlay"
+    id="cart-overlay"
+    onclick="closeCart()"
+  >
+  </div>
 
 
-  <!-- SLIDE OUT CART -->
-  <div class="cart-panel" id="cart-panel">
+
+  <!-- =========================
+       SLIDE OUT CART PANEL
+  ========================== -->
+
+  <div
+    class="cart-panel"
+    id="cart-panel"
+  >
+
 
     <div class="cart-header">
-      <h2>YOUR CART</h2>
 
-      <button class="close-cart" onclick="closeCart()">
+      <h2>
+
+        YOUR CART
+
+      </h2>
+
+
+      <button
+        class="close-cart"
+        onclick="closeCart()"
+      >
+
         ×
+
       </button>
+
     </div>
 
 
-    <div class="cart-items" id="cart-items">
+
+    <div
+      class="cart-items"
+      id="cart-items"
+    >
+
       <p class="empty-cart">
+
         YOUR CART IS EMPTY
+
       </p>
+
     </div>
+
 
 
     <div class="cart-footer">
 
+
       <div class="cart-total">
-        <span>TOTAL</span>
-        <span id="cart-total">$0.00</span>
+
+        <span>
+          TOTAL
+        </span>
+
+
+        <span id="cart-total">
+          $0.00
+        </span>
+
       </div>
+
 
 
       <button
@@ -781,37 +1608,70 @@
         onclick="checkout()"
         disabled
       >
+
         CHECKOUT
+
       </button>
 
+
     </div>
+
 
   </div>
 
 
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
   <script>
+
+
+    /* =========================
+       CART DATA
+    ========================== */
 
     let cart = [];
 
 
-    function addToCart(name, price, image) {
+    /* =========================
+       ADD TO CART
+    ========================== */
 
-      const existingProduct = cart.find(
-        item => item.name === name
-      );
+    function addToCart(
+      name,
+      price,
+      image
+    ) {
+
+
+      const existingProduct =
+        cart.find(function(item) {
+
+          return item.name === name;
+
+        });
 
 
       if (existingProduct) {
 
         existingProduct.quantity++;
 
-      } else {
+      }
+
+      else {
 
         cart.push({
+
           name: name,
+
           price: price,
+
           image: image,
+
           quantity: 1
+
         });
 
       }
@@ -819,43 +1679,76 @@
 
       updateCart();
 
+
       openCart();
 
     }
 
 
+
+    /* =========================
+       UPDATE CART
+    ========================== */
+
     function updateCart() {
 
+
       const cartItems =
-        document.getElementById("cart-items");
+        document.getElementById(
+          "cart-items"
+        );
+
 
       const cartCount =
-        document.getElementById("cart-count");
+        document.getElementById(
+          "cart-count"
+        );
+
 
       const cartTotal =
-        document.getElementById("cart-total");
+        document.getElementById(
+          "cart-total"
+        );
+
 
       const checkoutButton =
-        document.getElementById("checkout-button");
+        document.getElementById(
+          "checkout-button"
+        );
 
 
       cartItems.innerHTML = "";
 
 
+      /* EMPTY CART */
+
       if (cart.length === 0) {
 
+
         cartItems.innerHTML =
-          '<p class="empty-cart">YOUR CART IS EMPTY</p>';
+
+          '<p class="empty-cart">' +
+
+          'YOUR CART IS EMPTY' +
+
+          '</p>';
+
 
         cartCount.textContent = "0";
 
-        cartTotal.textContent = "$0.00";
 
-        checkoutButton.disabled = true;
+        cartTotal.textContent =
+          "$0.00";
+
+
+        checkoutButton.disabled =
+          true;
+
 
         return;
 
       }
+
 
 
       let total = 0;
@@ -863,82 +1756,125 @@
       let itemCount = 0;
 
 
-      cart.forEach((item, index) => {
 
-        total +=
-          item.price * item.quantity;
-
-        itemCount +=
-          item.quantity;
+      cart.forEach(
+        function(item, index) {
 
 
-        cartItems.innerHTML += `
-
-          <div class="cart-item">
-
-            <img
-              src="${item.image}"
-              alt="${item.name}"
-            >
+          total +=
+            item.price *
+            item.quantity;
 
 
-            <div class="cart-item-info">
-
-              <div class="cart-item-name">
-                ${item.name}
-              </div>
+          itemCount +=
+            item.quantity;
 
 
-              <div class="cart-item-price">
-                $${item.price.toFixed(2)}
-              </div>
+
+          const cartItem =
+            document.createElement(
+              "div"
+            );
 
 
-              <div class="quantity-controls">
-
-                <button
-                  onclick="changeQuantity(${index}, -1)"
-                >
-                  −
-                </button>
+          cartItem.className =
+            "cart-item";
 
 
-                <span>
-                  ${item.quantity}
-                </span>
+
+          cartItem.innerHTML =
+
+            '<img src="' +
+            item.image +
+            '" alt="' +
+            item.name +
+            '">' +
 
 
-                <button
-                  onclick="changeQuantity(${index}, 1)"
-                >
-                  +
-                </button>
-
-              </div>
+            '<div class="cart-item-info">' +
 
 
-              <button
-                class="remove-button"
-                onclick="removeItem(${index})"
-              >
-                REMOVE
-              </button>
+            '<div class="cart-item-name">' +
 
-            </div>
+            item.name +
 
-          </div>
+            '</div>' +
 
-        `;
 
-      });
+            '<div class="cart-item-price">' +
+
+            '$' +
+            item.price.toFixed(2) +
+
+            '</div>' +
+
+
+            '<div class="quantity-controls">' +
+
+
+            '<button onclick="changeQuantity(' +
+
+            index +
+
+            ', -1)">−</button>' +
+
+
+            '<span>' +
+
+            item.quantity +
+
+            '</span>' +
+
+
+            '<button onclick="changeQuantity(' +
+
+            index +
+
+            ', 1)">+</button>' +
+
+
+            '</div>' +
+
+
+            '<button class="remove-button" ' +
+
+            'onclick="removeItem(' +
+
+            index +
+
+            ')">' +
+
+
+            'REMOVE' +
+
+
+            '</button>' +
+
+
+            '</div>';
+
+
+
+          cartItems.appendChild(
+            cartItem
+          );
+
+
+        }
+      );
+
 
 
       cartCount.textContent =
         itemCount;
 
 
+
       cartTotal.textContent =
-        "$" + total.toFixed(2);
+
+        "$" +
+        total.toFixed(2);
+
 
 
       checkoutButton.disabled =
@@ -947,7 +1883,16 @@
     }
 
 
-    function changeQuantity(index, change) {
+
+    /* =========================
+       CHANGE QUANTITY
+    ========================== */
+
+    function changeQuantity(
+      index,
+      change
+    ) {
+
 
       cart[index].quantity +=
         change;
@@ -957,7 +1902,10 @@
         cart[index].quantity <= 0
       ) {
 
-        cart.splice(index, 1);
+        cart.splice(
+          index,
+          1
+        );
 
       }
 
@@ -967,58 +1915,122 @@
     }
 
 
-    function removeItem(index) {
 
-      cart.splice(index, 1);
+    /* =========================
+       REMOVE ITEM
+    ========================== */
+
+    function removeItem(
+      index
+    ) {
+
+
+      cart.splice(
+        index,
+        1
+      );
+
 
       updateCart();
 
     }
 
 
+
+    /* =========================
+       OPEN CART
+    ========================== */
+
     function openCart() {
 
-      document
-        .getElementById("cart-panel")
-        .classList.add("active");
-
 
       document
-        .getElementById("cart-overlay")
-        .classList.add("active");
+        .getElementById(
+          "cart-panel"
+        )
+        .classList
+        .add(
+          "active"
+        );
 
 
-      document.body
-        .classList.add("cart-open");
+
+      document
+        .getElementById(
+          "cart-overlay"
+        )
+        .classList
+        .add(
+          "active"
+        );
+
+
+
+      document
+        .body
+        .classList
+        .add(
+          "cart-open"
+        );
 
     }
 
+
+
+    /* =========================
+       CLOSE CART
+    ========================== */
 
     function closeCart() {
 
-      document
-        .getElementById("cart-panel")
-        .classList.remove("active");
-
 
       document
-        .getElementById("cart-overlay")
-        .classList.remove("active");
+        .getElementById(
+          "cart-panel"
+        )
+        .classList
+        .remove(
+          "active"
+        );
 
 
-      document.body
-        .classList.remove("cart-open");
+
+      document
+        .getElementById(
+          "cart-overlay"
+        )
+        .classList
+        .remove(
+          "active"
+        );
+
+
+
+      document
+        .body
+        .classList
+        .remove(
+          "cart-open"
+        );
 
     }
 
 
+
+    /* =========================
+       CHECKOUT
+    ========================== */
+
     function checkout() {
 
+
       if (cart.length === 0) {
+
 
         alert(
           "YOUR CART IS EMPTY"
         );
+
 
         return;
 
@@ -1026,12 +2038,20 @@
 
 
       alert(
-        "CART IS READY. NEXT WE WILL CONNECT YOUR STRIPE PAYMENT."
+        "YOUR CART IS READY. STRIPE PAYMENT WILL BE CONNECTED NEXT."
       );
 
     }
 
+
+    /* START CART */
+
+    updateCart();
+
+
   </script>
 
+
 </body>
+
 </html>
