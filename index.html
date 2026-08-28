@@ -1,42 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>5IVE WORLD</title>
 
   <style>
+
+    /* RESET */
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
 
+
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #050505;
+      background-color: #050505;
       color: white;
     }
 
+
     /* NAVIGATION */
+
     nav {
       width: 100%;
       padding: 20px 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #050505;
-      border-bottom: 1px solid #333;
+      background-color: #050505;
+      border-bottom: 1px solid #222;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
+
 
     .logo {
       font-size: 24px;
@@ -44,10 +52,12 @@
       letter-spacing: 5px;
     }
 
+
     .nav-links {
       display: flex;
       gap: 25px;
     }
+
 
     .nav-links a {
       color: white;
@@ -56,477 +66,852 @@
       font-weight: bold;
     }
 
+
+    .nav-links a:hover {
+      color: #aaaaaa;
+    }
+
+
     /* HERO */
+
     .hero {
-      min-height: 65vh;
+      min-height: 70vh;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
       padding: 80px 20px;
-      background: radial-gradient(circle, #242424 0%, #101010 45%, #050505 75%);
+      background:
+        radial-gradient(circle at center, #252525 0%, #111111 45%, #050505 80%);
     }
 
+
     .hero h1 {
-      font-size: clamp(50px, 10vw, 110px);
-      letter-spacing: 12px;
+      font-size: clamp(50px, 10vw, 120px);
+      letter-spacing: 10px;
       margin-bottom: 20px;
     }
 
+
     .hero p {
-      color: #aaa;
+      color: #aaaaaa;
+      font-size: 14px;
       letter-spacing: 2px;
       margin-bottom: 30px;
     }
 
-    .hero-btn {
+
+    .hero-button {
       display: inline-block;
-      padding: 15px 35px;
-      background: white;
+      background-color: white;
       color: black;
       text-decoration: none;
+      padding: 15px 35px;
       font-weight: bold;
     }
 
-    /* SECTIONS */
-    section {
-      padding: 70px 6%;
+
+    .hero-button:hover {
+      background-color: #cccccc;
     }
 
-    .title {
-      font-size: 30px;
+
+    /* GENERAL SECTIONS */
+
+    section {
+      padding: 80px 6%;
+    }
+
+
+    .section-title {
+      font-size: 32px;
       letter-spacing: 2px;
       margin-bottom: 10px;
     }
 
-    .subtitle {
-      color: #999;
+
+    .section-subtitle {
+      color: #999999;
       font-size: 13px;
-      margin-bottom: 35px;
       letter-spacing: 1px;
+      margin-bottom: 35px;
     }
 
+
     /* PRODUCT GRID */
+
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 20px;
     }
 
+
     .product-card {
-      background: #101010;
-      border: 1px solid #333;
+      background-color: #101010;
+      border: 1px solid #333333;
       overflow: hidden;
       transition: 0.3s;
     }
 
+
     .product-card:hover {
       transform: translateY(-5px);
-      border-color: #777;
+      border-color: #777777;
     }
+
 
     .product-card img {
       width: 100%;
       height: 330px;
       object-fit: cover;
       display: block;
-      background: #1a1a1a;
+      background-color: #1a1a1a;
     }
+
 
     .product-info {
-      padding: 18px;
+      padding: 20px;
     }
 
+
     .product-info h3 {
-      font-size: 16px;
+      font-size: 15px;
       letter-spacing: 1px;
       margin-bottom: 12px;
     }
 
+
     .price {
       font-size: 18px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
+
 
     .details {
-      color: #999;
+      color: #999999;
       font-size: 12px;
-      margin-bottom: 15px;
-      letter-spacing: 1px;
+      margin-bottom: 18px;
     }
 
-    button {
+
+    .add-button {
       width: 100%;
       padding: 14px;
       border: none;
-      background: white;
+      background-color: white;
       color: black;
       font-weight: bold;
       cursor: pointer;
     }
 
-    button:hover {
-      background: #cccccc;
+
+    .add-button:hover {
+      background-color: #cccccc;
     }
+
 
     /* DROP 02 */
-    .coming-section {
-      background: #0d0d0d;
-      border-top: 1px solid #333;
-      border-bottom: 1px solid #333;
+
+    .drop-section {
+      background-color: #0d0d0d;
+      border-top: 1px solid #222222;
+      border-bottom: 1px solid #222222;
     }
 
-    .image-box {
+
+    .image-container {
       position: relative;
     }
 
-    .coming-label {
+
+    .coming-soon {
       position: absolute;
       top: 12px;
       left: 12px;
-      background: white;
+      background-color: white;
       color: black;
       padding: 8px 12px;
       font-size: 11px;
       font-weight: bold;
-      z-index: 2;
+      z-index: 10;
     }
 
+
     /* REVIEWS */
+
     .review-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 20px;
     }
 
+
     .review-card {
-      background: #111;
-      border: 1px solid #333;
+      background-color: #111111;
+      border: 1px solid #333333;
       overflow: hidden;
     }
+
 
     .review-card img {
       width: 100%;
       height: 350px;
       object-fit: cover;
       display: block;
+      background-color: #1a1a1a;
     }
 
+
     /* THANK YOU */
+
     .thank-you {
       text-align: center;
       padding: 100px 20px;
-      background: radial-gradient(circle, #202020, #050505 70%);
+      background:
+        radial-gradient(circle at center, #202020 0%, #050505 75%);
     }
 
+
     .thank-you h2 {
-      font-size: clamp(28px, 5vw, 50px);
+      font-size: clamp(30px, 5vw, 55px);
       letter-spacing: 3px;
       margin-bottom: 20px;
     }
 
+
     .thank-you p {
-      color: #aaa;
       max-width: 650px;
       margin: auto;
+      color: #aaaaaa;
       line-height: 1.8;
+      font-size: 15px;
     }
 
+
     /* FOOTER */
+
     footer {
-      padding: 30px;
       text-align: center;
-      color: #777;
-      border-top: 1px solid #222;
+      padding: 30px;
+      color: #777777;
+      border-top: 1px solid #222222;
       font-size: 12px;
     }
 
+
     /* MOBILE */
+
     @media (max-width: 600px) {
+
       nav {
         padding: 18px 5%;
       }
+
 
       .logo {
         font-size: 17px;
         letter-spacing: 3px;
       }
 
+
       .nav-links {
         gap: 12px;
       }
+
 
       .nav-links a {
         font-size: 10px;
       }
 
-      section {
-        padding: 50px 5%;
+
+      .product-card img {
+        height: 300px;
       }
+
+
+      .review-card img {
+        height: 300px;
+      }
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
+
   <!-- NAVIGATION -->
+
   <nav>
-    <div class="logo">5IVE WORLD</div>
+
+    <div class="logo">
+      5IVE WORLD
+    </div>
+
 
     <div class="nav-links">
+
       <a href="#shop">SHOP</a>
-      <a href="#drop">DROP 02</a>
+
+      <a href="#drop02">DROP 02</a>
+
       <a href="#reviews">REVIEWS</a>
+
     </div>
+
   </nav>
 
 
+
   <!-- HERO -->
+
   <section class="hero">
+
     <div>
+
       <h1>5IVE WORLD</h1>
+
       <p>MORE THAN A BRAND. IT'S A WORLD.</p>
-      <a href="#shop" class="hero-btn">SHOP NOW</a>
+
+      <a href="#shop" class="hero-button">
+        SHOP NOW
+      </a>
+
     </div>
+
   </section>
+
 
 
   <!-- SHOP -->
+
   <section id="shop">
 
-    <h2 class="title">SHOP THE COLLECTION</h2>
+    <h2 class="section-title">
+      SHOP THE COLLECTION
+    </h2>
 
-    <p class="subtitle">
+
+    <p class="section-subtitle">
       LIMITED STOCK • 5IVE WORLD
     </p>
 
+
     <div class="product-grid">
 
+
+      <!-- BLACK SHORTS -->
+
       <div class="product-card">
-        <img src="short-black.jpeg" alt="Black 5IVE Shorts">
+
+        <img
+          src="short-black.jpeg"
+          alt="Black 5IVE Shorts"
+        >
 
         <div class="product-info">
+
           <h3>BLACK 5IVE SHORTS</h3>
+
           <p class="price">$50</p>
-          <p class="details">LIMITED STOCK</p>
-          <button>ADD TO CART</button>
+
+          <p class="details">
+            LIMITED STOCK
+          </p>
+
+          <button class="add-button">
+            ADD TO CART
+          </button>
+
         </div>
+
       </div>
 
 
+
+      <!-- GRAY BLUE SHORTS -->
+
       <div class="product-card">
-        <img src="short-gray-blue.jpeg" alt="Gray Blue 5IVE Shorts">
+
+        <img
+          src="short-gray-blue.jpeg"
+          alt="Gray Blue 5IVE Shorts"
+        >
 
         <div class="product-info">
+
           <h3>GRAY BLUE 5IVE SHORTS</h3>
+
           <p class="price">$50</p>
-          <p class="details">LIMITED STOCK</p>
-          <button>ADD TO CART</button>
+
+          <p class="details">
+            LIMITED STOCK
+          </p>
+
+          <button class="add-button">
+            ADD TO CART
+          </button>
+
         </div>
+
       </div>
 
 
+
+      <!-- GRAY SHORTS -->
+
       <div class="product-card">
-        <img src="short-gray.jpeg" alt="Gray 5IVE Shorts">
+
+        <img
+          src="short-gray.jpeg"
+          alt="Gray 5IVE Shorts"
+        >
 
         <div class="product-info">
+
           <h3>GRAY 5IVE SHORTS</h3>
+
           <p class="price">$50</p>
-          <p class="details">LIMITED STOCK</p>
-          <button>ADD TO CART</button>
+
+          <p class="details">
+            LIMITED STOCK
+          </p>
+
+          <button class="add-button">
+            ADD TO CART
+          </button>
+
         </div>
+
       </div>
 
 
+
+      <!-- GROUP SHORTS -->
+
       <div class="product-card">
-        <img src="short-group.jpeg" alt="5IVE Shorts Collection">
+
+        <img
+          src="short-group.jpeg"
+          alt="5IVE Shorts Collection"
+        >
 
         <div class="product-info">
+
           <h3>5IVE SHORTS COLLECTION</h3>
+
           <p class="price">$50</p>
-          <p class="details">LIMITED STOCK</p>
-          <button>ADD TO CART</button>
+
+          <p class="details">
+            LIMITED STOCK
+          </p>
+
+          <button class="add-button">
+            ADD TO CART
+          </button>
+
         </div>
+
       </div>
 
 
+
+      <!-- PINK SHORTS -->
+
       <div class="product-card">
-        <img src="short-pink.jpeg.PNG" alt="Pink 5IVE Shorts">
+
+        <img
+          src="short-pink.jpeg.PNG"
+          alt="Pink 5IVE Shorts"
+        >
 
         <div class="product-info">
+
           <h3>PINK 5IVE SHORTS</h3>
+
           <p class="price">$50</p>
-          <p class="details">SIZE: SMALL / MEDIUM / LARGE</p>
-          <button>ADD TO CART</button>
+
+          <p class="details">
+            LIMITED STOCK
+          </p>
+
+          <button class="add-button">
+            ADD TO CART
+          </button>
+
         </div>
+
       </div>
 
 
+
+      <!-- RED SHORTS -->
+
       <div class="product-card">
-        <img src="short-red.jpeg" alt="Red 5IVE Shorts">
+
+        <img
+          src="short-red.jpeg"
+          alt="Red 5IVE Shorts"
+        >
 
         <div class="product-info">
+
           <h3>RED 5IVE SHORTS</h3>
+
           <p class="price">$50</p>
-          <p class="details">LIMITED STOCK</p>
-          <button>ADD TO CART</button>
+
+          <p class="details">
+            LIMITED STOCK
+          </p>
+
+          <button class="add-button">
+            ADD TO CART
+          </button>
+
         </div>
+
       </div>
 
+
+
+      <!-- WHITE SHORTS -->
 
       <div class="product-card">
-        <img src="short-white.jpeg" alt="White 5IVE Shorts">
+
+        <img
+          src="short-white.jpeg"
+          alt="White 5IVE Shorts"
+        >
 
         <div class="product-info">
+
           <h3>WHITE 5IVE SHORTS</h3>
+
           <p class="price">$50</p>
-          <p class="details">LIMITED STOCK</p>
-          <button>ADD TO CART</button>
+
+          <p class="details">
+            LIMITED STOCK
+          </p>
+
+          <button class="add-button">
+            ADD TO CART
+          </button>
+
         </div>
+
       </div>
+
 
     </div>
+
   </section>
+
 
 
   <!-- DROP 02 -->
-  <section class="coming-section" id="drop">
 
-    <h2 class="title">DROP 02</h2>
+  <section
+    class="drop-section"
+    id="drop02"
+  >
 
-    <p class="subtitle">
+    <h2 class="section-title">
+      DROP 02
+    </h2>
+
+
+    <p class="section-subtitle">
       NEW 5IVE HOODIES • COMING SOON
     </p>
+
 
     <div class="product-grid">
 
 
+      <!-- BLUE HOODIE -->
+
       <div class="product-card">
-        <div class="image-box">
-          <div class="coming-label">COMING SOON</div>
-          <img src="blue-hoodie.jpeg.png" alt="Blue 5IVE Hoodie">
+
+        <div class="image-container">
+
+          <div class="coming-soon">
+            COMING SOON
+          </div>
+
+          <img
+            src="blue-hoodie.jpeg.png"
+            alt="Blue 5IVE Hoodie"
+          >
+
         </div>
 
+
         <div class="product-info">
+
           <h3>BLUE 5IVE HOODIE</h3>
-          <p class="price">COMING SOON</p>
+
+          <p class="price">
+            COMING SOON
+          </p>
+
         </div>
+
       </div>
 
 
+
+      <!-- GREEN HOODIE -->
+
       <div class="product-card">
-        <div class="image-box">
-          <div class="coming-label">COMING SOON</div>
-          <img src="green-hoodie.jpeg.png" alt="Green 5IVE Hoodie">
+
+        <div class="image-container">
+
+          <div class="coming-soon">
+            COMING SOON
+          </div>
+
+          <img
+            src="green-hoodie.jpeg.png"
+            alt="Green 5IVE Hoodie"
+          >
+
         </div>
 
+
         <div class="product-info">
+
           <h3>GREEN 5IVE HOODIE</h3>
-          <p class="price">COMING SOON</p>
+
+          <p class="price">
+            COMING SOON
+          </p>
+
         </div>
+
       </div>
 
 
+
+      <!-- PINK HOODIE -->
+
       <div class="product-card">
-        <div class="image-box">
-          <div class="coming-label">COMING SOON</div>
-          <img src="pink-hoodie.png" alt="Pink 5IVE Hoodie">
+
+        <div class="image-container">
+
+          <div class="coming-soon">
+            COMING SOON
+          </div>
+
+          <img
+            src="pink-hoodie.png"
+            alt="Pink 5IVE Hoodie"
+          >
+
         </div>
 
+
         <div class="product-info">
+
           <h3>PINK 5IVE HOODIE</h3>
-          <p class="price">COMING SOON</p>
+
+          <p class="price">
+            COMING SOON
+          </p>
+
         </div>
+
       </div>
 
 
+
+      <!-- PURPLE HOODIE -->
+
       <div class="product-card">
-        <div class="image-box">
-          <div class="coming-label">COMING SOON</div>
-          <img src="purple-hoodie.jpeg.png" alt="Purple 5IVE Hoodie">
+
+        <div class="image-container">
+
+          <div class="coming-soon">
+            COMING SOON
+          </div>
+
+          <img
+            src="purple-hoodie.jpeg.png"
+            alt="Purple 5IVE Hoodie"
+          >
+
         </div>
 
+
         <div class="product-info">
+
           <h3>PURPLE 5IVE HOODIE</h3>
-          <p class="price">COMING SOON</p>
+
+          <p class="price">
+            COMING SOON
+          </p>
+
         </div>
+
       </div>
 
+
+
+      <!-- RED HOODIE -->
 
       <div class="product-card">
-        <div class="image-box">
-          <div class="coming-label">COMING SOON</div>
-          <img src="red-hoodie.jpeg.png" alt="Red 5IVE Hoodie">
+
+        <div class="image-container">
+
+          <div class="coming-soon">
+            COMING SOON
+          </div>
+
+          <img
+            src="red-hoodie.jpeg.png"
+            alt="Red 5IVE Hoodie"
+          >
+
         </div>
 
+
         <div class="product-info">
+
           <h3>RED 5IVE HOODIE</h3>
-          <p class="price">COMING SOON</p>
+
+          <p class="price">
+            COMING SOON
+          </p>
+
         </div>
+
       </div>
+
 
     </div>
+
   </section>
 
 
-  <!-- REVIEWS -->
+
+  <!-- CUSTOMER REVIEWS -->
+
   <section id="reviews">
 
-    <h2 class="title">CUSTOMER REVIEWS</h2>
+    <h2 class="section-title">
+      CUSTOMER REVIEWS
+    </h2>
 
-    <p class="subtitle">
+
+    <p class="section-subtitle">
       REAL SUPPORT FROM THE 5IVE WORLD FAMILY
     </p>
 
+
     <div class="review-grid">
 
-      <div class="review-card">
-        <img src="review1.jpeg.PNG" alt="Customer Review 1">
-      </div>
 
       <div class="review-card">
-        <img src="review2.jpeg.PNG" alt="Customer Review 2">
+
+        <img
+          src="review1.jpeg.PNG"
+          alt="Customer Review 1"
+        >
+
       </div>
 
-      <div class="review-card">
-        <img src="review3.jpeg.PNG" alt="Customer Review 3">
-      </div>
 
       <div class="review-card">
-        <img src="review4.jpeg.PNG" alt="Customer Review 4">
+
+        <img
+          src="review2.jpeg.PNG"
+          alt="Customer Review 2"
+        >
+
       </div>
 
-      <div class="review-card">
-        <img src="review5.jpeg.PNG" alt="Customer Review 5">
-      </div>
 
       <div class="review-card">
-        <img src="review6.jpeg.PNG" alt="Customer Review 6">
+
+        <img
+          src="review3.jpeg.PNG"
+          alt="Customer Review 3"
+        >
+
       </div>
+
+
+      <div class="review-card">
+
+        <img
+          src="review4.jpeg.PNG"
+          alt="Customer Review 4"
+        >
+
+      </div>
+
+
+      <div class="review-card">
+
+        <img
+          src="review5.jpeg.PNG"
+          alt="Customer Review 5"
+        >
+
+      </div>
+
+
+      <div class="review-card">
+
+        <img
+          src="review6.jpeg.PNG"
+          alt="Customer Review 6"
+        >
+
+      </div>
+
 
     </div>
+
   </section>
 
 
+
   <!-- THANK YOU -->
+
   <section class="thank-you">
 
-    <h2>THANK YOU FOR YOUR SUPPORT</h2>
+    <h2>
+      THANK YOU FOR YOUR SUPPORT
+    </h2>
+
 
     <p>
+
       Thank you to everyone who supports 5IVE WORLD.
       Every order, share, and message means a lot.
-      This is only the beginning. More drops are coming soon.
+      This is only the beginning.
+      More drops are coming soon.
       Welcome to the 5IVE WORLD.
+
     </p>
 
   </section>
 
 
+
   <!-- FOOTER -->
+
   <footer>
+
     © 2026 5IVE WORLD • ALL RIGHTS RESERVED
+
   </footer>
 
+
 </body>
+
 </html>
