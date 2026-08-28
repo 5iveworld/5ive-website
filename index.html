@@ -25,11 +25,6 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    body.cart-open {
-      overflow: hidden;
-    }
-
-
     /* =========================
        NAVIGATION
     ========================= */
@@ -58,12 +53,12 @@
     .header-right {
       display: flex;
       align-items: center;
-      gap: 25px;
+      gap: 20px;
     }
 
     nav {
       display: flex;
-      gap: 20px;
+      gap: 18px;
     }
 
     nav a {
@@ -73,26 +68,13 @@
       font-weight: bold;
     }
 
-    nav a:hover {
-      color: #aaa;
-    }
-
-    .cart-button {
-      width: auto;
-      margin: 0;
-      padding: 10px 15px;
-
-      background: transparent;
-      color: white;
-
-      border: 1px solid #555;
-
-      cursor: pointer;
-    }
-
-    .cart-button:hover {
+    .instagram-header {
       background: white;
       color: black;
+      padding: 10px 15px;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: bold;
     }
 
 
@@ -135,7 +117,6 @@
 
     .hero-button {
       display: inline-block;
-
       padding: 15px 35px;
 
       background: white;
@@ -147,7 +128,7 @@
 
 
     /* =========================
-       GENERAL SECTIONS
+       SECTIONS
     ========================= */
 
     section {
@@ -184,9 +165,7 @@
     .product-card {
       background: #101010;
       border: 1px solid #333;
-
       overflow: hidden;
-
       transition: 0.3s;
     }
 
@@ -198,10 +177,8 @@
     .product-card img {
       width: 100%;
       height: 330px;
-
       object-fit: cover;
       display: block;
-
       background: #1a1a1a;
     }
 
@@ -226,23 +203,18 @@
       margin-bottom: 18px;
     }
 
-    .add-button {
+    .buy-button {
+      display: block;
       width: 100%;
-      margin: 0;
-
       padding: 14px;
-
-      border: none;
 
       background: white;
       color: black;
 
+      text-align: center;
+      text-decoration: none;
       font-weight: bold;
-      cursor: pointer;
-    }
-
-    .add-button:hover {
-      background: #ccc;
+      font-size: 12px;
     }
 
 
@@ -252,7 +224,6 @@
 
     .drop-section {
       background: #0d0d0d;
-
       border-top: 1px solid #222;
       border-bottom: 1px solid #222;
     }
@@ -263,10 +234,8 @@
 
     .coming-soon {
       position: absolute;
-
       top: 12px;
       left: 12px;
-
       z-index: 10;
 
       padding: 8px 12px;
@@ -295,7 +264,6 @@
     .review-card {
       background: #111;
       border: 1px solid #333;
-
       overflow: hidden;
     }
 
@@ -305,7 +273,6 @@
 
       object-fit: cover;
       display: block;
-
       background: #1a1a1a;
     }
 
@@ -336,7 +303,6 @@
     .thank-you p {
       max-width: 650px;
       margin: auto;
-
       color: #aaa;
       line-height: 1.8;
     }
@@ -348,235 +314,9 @@
 
     footer {
       text-align: center;
-
       padding: 30px;
-
       color: #777;
-
       border-top: 1px solid #222;
-
-      font-size: 12px;
-    }
-
-
-    /* =========================
-       CART OVERLAY
-    ========================= */
-
-    .cart-overlay {
-      position: fixed;
-
-      inset: 0;
-
-      background: rgba(0, 0, 0, 0.7);
-
-      opacity: 0;
-      visibility: hidden;
-
-      transition: 0.3s;
-
-      z-index: 2000;
-    }
-
-    .cart-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-
-    /* =========================
-       SLIDE OUT CART
-    ========================= */
-
-    .cart-panel {
-      position: fixed;
-
-      top: 0;
-      right: -450px;
-
-      width: min(420px, 100%);
-      height: 100vh;
-
-      background: #0b0b0b;
-
-      border-left: 1px solid #333;
-
-      z-index: 3000;
-
-      transition: right 0.35s ease;
-
-      display: flex;
-      flex-direction: column;
-    }
-
-    .cart-panel.active {
-      right: 0;
-    }
-
-    .cart-header {
-      display: flex;
-
-      justify-content: space-between;
-      align-items: center;
-
-      padding: 25px 20px;
-
-      border-bottom: 1px solid #333;
-    }
-
-    .cart-header h2 {
-      font-size: 22px;
-      letter-spacing: 2px;
-    }
-
-    .close-cart {
-      width: auto;
-      margin: 0;
-
-      padding: 0 10px;
-
-      background: transparent;
-      color: white;
-
-      font-size: 28px;
-    }
-
-    .cart-items {
-      flex: 1;
-
-      overflow-y: auto;
-
-      padding: 20px;
-    }
-
-    .empty-cart {
-      color: #999;
-
-      text-align: center;
-
-      margin-top: 50px;
-    }
-
-    .cart-item {
-      display: flex;
-
-      gap: 15px;
-
-      padding-bottom: 20px;
-      margin-bottom: 20px;
-
-      border-bottom: 1px solid #222;
-    }
-
-    .cart-item img {
-      width: 80px;
-      height: 100px;
-
-      object-fit: cover;
-
-      background: #222;
-    }
-
-    .cart-item-info {
-      flex: 1;
-    }
-
-    .cart-item-name {
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
-
-    .cart-item-price {
-      color: #aaa;
-      font-size: 14px;
-      margin-bottom: 12px;
-    }
-
-    .quantity-controls {
-      display: flex;
-      align-items: center;
-
-      gap: 10px;
-    }
-
-    .quantity-controls button {
-      width: 30px;
-      height: 30px;
-
-      margin: 0;
-      padding: 0;
-
-      background: #222;
-      color: white;
-
-      border: 1px solid #444;
-    }
-
-    .quantity-controls span {
-      min-width: 20px;
-      text-align: center;
-    }
-
-    .remove-button {
-      width: auto;
-
-      margin-top: 12px;
-      padding: 0;
-
-      background: transparent;
-      color: #999;
-
-      border: none;
-
-      font-size: 12px;
-
-      text-decoration: underline;
-    }
-
-
-    /* =========================
-       CART FOOTER
-    ========================= */
-
-    .cart-footer {
-      padding: 20px;
-
-      border-top: 1px solid #333;
-    }
-
-    .cart-total {
-      display: flex;
-
-      justify-content: space-between;
-
-      font-size: 20px;
-
-      margin-bottom: 20px;
-    }
-
-    .instagram-buy {
-      display: block;
-
-      width: 100%;
-
-      padding: 16px;
-
-      background: white;
-      color: black;
-
-      text-align: center;
-      text-decoration: none;
-
-      font-weight: bold;
-
-      margin-bottom: 15px;
-    }
-
-    .instagram-name {
-      text-align: center;
-
-      color: #999;
-
       font-size: 12px;
     }
 
@@ -596,21 +336,13 @@
         letter-spacing: 3px;
       }
 
-      .header-right {
-        gap: 10px;
-      }
-
       nav {
-        gap: 10px;
+        display: none;
       }
 
-      nav a {
-        font-size: 10px;
-      }
-
-      .cart-button {
-        padding: 8px 10px;
-        font-size: 10px;
+      .instagram-header {
+        font-size: 9px;
+        padding: 9px 10px;
       }
 
       .product-card img {
@@ -631,9 +363,7 @@
 <body>
 
 
-  <!-- =========================
-       NAVIGATION
-  ========================= -->
+  <!-- NAVIGATION -->
 
   <header>
 
@@ -651,13 +381,13 @@
       </nav>
 
 
-      <button
-        class="cart-button"
-        onclick="openCart()"
+      <a
+        class="instagram-header"
+        href="https://www.instagram.com/____offical5ive/"
+        target="_blank"
       >
-        🛒 CART
-        (<span id="cart-count">0</span>)
-      </button>
+        BUY ON INSTAGRAM
+      </a>
 
     </div>
 
@@ -665,9 +395,7 @@
 
 
 
-  <!-- =========================
-       HERO
-  ========================= -->
+  <!-- HERO -->
 
   <section class="hero">
 
@@ -692,16 +420,13 @@
 
 
 
-  <!-- =========================
-       SHOP
-  ========================= -->
+  <!-- SHOP -->
 
   <section id="shop">
 
     <h2 class="section-title">
       SHOP THE COLLECTION
     </h2>
-
 
     <p class="section-subtitle">
       LIMITED STOCK • 5IVE WORLD
@@ -711,7 +436,7 @@
     <div class="product-grid">
 
 
-      <!-- BLACK -->
+      <!-- BLACK SHORTS -->
 
       <div class="product-card">
 
@@ -722,28 +447,19 @@
 
         <div class="product-info">
 
-          <h3>
-            BLACK 5IVE SHORTS
-          </h3>
+          <h3>BLACK 5IVE SHORTS</h3>
 
-          <p class="price">
-            $50
-          </p>
+          <p class="price">$50</p>
 
-          <p class="details">
-            LIMITED STOCK
-          </p>
+          <p class="details">LIMITED STOCK</p>
 
-          <button
-            class="add-button"
-            onclick="addToCart(
-              'BLACK 5IVE SHORTS',
-              50,
-              'short-black.jpeg'
-            )"
+          <a
+            class="buy-button"
+            href="https://www.instagram.com/____offical5ive/"
+            target="_blank"
           >
-            ADD TO CART
-          </button>
+            BUY ON INSTAGRAM
+          </a>
 
         </div>
 
@@ -751,7 +467,7 @@
 
 
 
-      <!-- GRAY BLUE -->
+      <!-- GRAY BLUE SHORTS -->
 
       <div class="product-card">
 
@@ -762,28 +478,19 @@
 
         <div class="product-info">
 
-          <h3>
-            GRAY BLUE 5IVE SHORTS
-          </h3>
+          <h3>GRAY BLUE 5IVE SHORTS</h3>
 
-          <p class="price">
-            $50
-          </p>
+          <p class="price">$50</p>
 
-          <p class="details">
-            LIMITED STOCK
-          </p>
+          <p class="details">LIMITED STOCK</p>
 
-          <button
-            class="add-button"
-            onclick="addToCart(
-              'GRAY BLUE 5IVE SHORTS',
-              50,
-              'short-gray-blue.jpeg'
-            )"
+          <a
+            class="buy-button"
+            href="https://www.instagram.com/____offical5ive/"
+            target="_blank"
           >
-            ADD TO CART
-          </button>
+            BUY ON INSTAGRAM
+          </a>
 
         </div>
 
@@ -791,7 +498,7 @@
 
 
 
-      <!-- GRAY -->
+      <!-- GRAY SHORTS -->
 
       <div class="product-card">
 
@@ -802,28 +509,19 @@
 
         <div class="product-info">
 
-          <h3>
-            GRAY 5IVE SHORTS
-          </h3>
+          <h3>GRAY 5IVE SHORTS</h3>
 
-          <p class="price">
-            $50
-          </p>
+          <p class="price">$50</p>
 
-          <p class="details">
-            LIMITED STOCK
-          </p>
+          <p class="details">LIMITED STOCK</p>
 
-          <button
-            class="add-button"
-            onclick="addToCart(
-              'GRAY 5IVE SHORTS',
-              50,
-              'short-gray.jpeg'
-            )"
+          <a
+            class="buy-button"
+            href="https://www.instagram.com/____offical5ive/"
+            target="_blank"
           >
-            ADD TO CART
-          </button>
+            BUY ON INSTAGRAM
+          </a>
 
         </div>
 
@@ -831,7 +529,39 @@
 
 
 
-      <!-- PINK -->
+      <!-- GREEN SHORTS -->
+      <!-- YOUR FILE IS NAMED short-group.jpeg -->
+
+      <div class="product-card">
+
+        <img
+          src="short-group.jpeg"
+          alt="Green 5IVE Shorts"
+        >
+
+        <div class="product-info">
+
+          <h3>GREEN 5IVE SHORTS</h3>
+
+          <p class="price">$50</p>
+
+          <p class="details">LIMITED STOCK</p>
+
+          <a
+            class="buy-button"
+            href="https://www.instagram.com/____offical5ive/"
+            target="_blank"
+          >
+            BUY ON INSTAGRAM
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- PINK SHORTS -->
 
       <div class="product-card">
 
@@ -842,28 +572,19 @@
 
         <div class="product-info">
 
-          <h3>
-            PINK 5IVE SHORTS
-          </h3>
+          <h3>PINK 5IVE SHORTS</h3>
 
-          <p class="price">
-            $50
-          </p>
+          <p class="price">$50</p>
 
-          <p class="details">
-            LIMITED STOCK
-          </p>
+          <p class="details">LIMITED STOCK</p>
 
-          <button
-            class="add-button"
-            onclick="addToCart(
-              'PINK 5IVE SHORTS',
-              50,
-              'short-pink.jpeg.PNG'
-            )"
+          <a
+            class="buy-button"
+            href="https://www.instagram.com/____offical5ive/"
+            target="_blank"
           >
-            ADD TO CART
-          </button>
+            BUY ON INSTAGRAM
+          </a>
 
         </div>
 
@@ -871,7 +592,7 @@
 
 
 
-      <!-- RED -->
+      <!-- RED SHORTS -->
 
       <div class="product-card">
 
@@ -882,28 +603,19 @@
 
         <div class="product-info">
 
-          <h3>
-            RED 5IVE SHORTS
-          </h3>
+          <h3>RED 5IVE SHORTS</h3>
 
-          <p class="price">
-            $50
-          </p>
+          <p class="price">$50</p>
 
-          <p class="details">
-            LIMITED STOCK
-          </p>
+          <p class="details">LIMITED STOCK</p>
 
-          <button
-            class="add-button"
-            onclick="addToCart(
-              'RED 5IVE SHORTS',
-              50,
-              'short-red.jpeg'
-            )"
+          <a
+            class="buy-button"
+            href="https://www.instagram.com/____offical5ive/"
+            target="_blank"
           >
-            ADD TO CART
-          </button>
+            BUY ON INSTAGRAM
+          </a>
 
         </div>
 
@@ -911,7 +623,7 @@
 
 
 
-      <!-- WHITE -->
+      <!-- WHITE SHORTS -->
 
       <div class="product-card">
 
@@ -922,28 +634,19 @@
 
         <div class="product-info">
 
-          <h3>
-            WHITE 5IVE SHORTS
-          </h3>
+          <h3>WHITE 5IVE SHORTS</h3>
 
-          <p class="price">
-            $50
-          </p>
+          <p class="price">$50</p>
 
-          <p class="details">
-            LIMITED STOCK
-          </p>
+          <p class="details">LIMITED STOCK</p>
 
-          <button
-            class="add-button"
-            onclick="addToCart(
-              'WHITE 5IVE SHORTS',
-              50,
-              'short-white.jpeg'
-            )"
+          <a
+            class="buy-button"
+            href="https://www.instagram.com/____offical5ive/"
+            target="_blank"
           >
-            ADD TO CART
-          </button>
+            BUY ON INSTAGRAM
+          </a>
 
         </div>
 
@@ -956,9 +659,7 @@
 
 
 
-  <!-- =========================
-       DROP 02 - COMING SOON
-  ========================= -->
+  <!-- DROP 02 -->
 
   <section
     class="drop-section"
@@ -968,7 +669,6 @@
     <h2 class="section-title">
       DROP 02
     </h2>
-
 
     <p class="section-subtitle">
       NEW 5IVE HOODIES • COMING SOON
@@ -997,13 +697,9 @@
 
         <div class="product-info">
 
-          <h3>
-            BLUE 5IVE HOODIE
-          </h3>
+          <h3>BLUE 5IVE HOODIE</h3>
 
-          <p class="price">
-            COMING SOON
-          </p>
+          <p class="price">COMING SOON</p>
 
         </div>
 
@@ -1030,13 +726,9 @@
 
         <div class="product-info">
 
-          <h3>
-            GREEN 5IVE HOODIE
-          </h3>
+          <h3>GREEN 5IVE HOODIE</h3>
 
-          <p class="price">
-            COMING SOON
-          </p>
+          <p class="price">COMING SOON</p>
 
         </div>
 
@@ -1063,13 +755,9 @@
 
         <div class="product-info">
 
-          <h3>
-            PINK 5IVE HOODIE
-          </h3>
+          <h3>PINK 5IVE HOODIE</h3>
 
-          <p class="price">
-            COMING SOON
-          </p>
+          <p class="price">COMING SOON</p>
 
         </div>
 
@@ -1096,13 +784,9 @@
 
         <div class="product-info">
 
-          <h3>
-            PURPLE 5IVE HOODIE
-          </h3>
+          <h3>PURPLE 5IVE HOODIE</h3>
 
-          <p class="price">
-            COMING SOON
-          </p>
+          <p class="price">COMING SOON</p>
 
         </div>
 
@@ -1129,13 +813,9 @@
 
         <div class="product-info">
 
-          <h3>
-            RED 5IVE HOODIE
-          </h3>
+          <h3>RED 5IVE HOODIE</h3>
 
-          <p class="price">
-            COMING SOON
-          </p>
+          <p class="price">COMING SOON</p>
 
         </div>
 
@@ -1148,16 +828,13 @@
 
 
 
-  <!-- =========================
-       CUSTOMER REVIEWS
-  ========================= -->
+  <!-- CUSTOMER REVIEWS -->
 
   <section id="reviews">
 
     <h2 class="section-title">
       CUSTOMER REVIEWS
     </h2>
-
 
     <p class="section-subtitle">
       THANK YOU FOR SUPPORTING 5IVE WORLD
@@ -1168,50 +845,62 @@
 
 
       <div class="review-card">
+
         <img
           src="review1.jpeg.PNG"
           alt="Customer Review 1"
         >
+
       </div>
 
 
       <div class="review-card">
+
         <img
           src="review2.jpeg.PNG"
           alt="Customer Review 2"
         >
+
       </div>
 
 
       <div class="review-card">
+
         <img
           src="review3.jpeg.PNG"
           alt="Customer Review 3"
         >
+
       </div>
 
 
       <div class="review-card">
+
         <img
           src="review4.jpeg.PNG"
           alt="Customer Review 4"
         >
+
       </div>
 
 
       <div class="review-card">
+
         <img
           src="review5.jpeg.PNG"
           alt="Customer Review 5"
         >
+
       </div>
 
 
       <div class="review-card">
+
         <img
           src="review6.jpeg.PNG"
           alt="Customer Review 6"
         >
+
       </div>
 
 
@@ -1221,16 +910,13 @@
 
 
 
-  <!-- =========================
-       THANK YOU
-  ========================= -->
+  <!-- THANK YOU -->
 
   <section class="thank-you">
 
     <h2>
       THANK YOU FOR YOUR SUPPORT
     </h2>
-
 
     <p>
       Thank you to everyone who supports
@@ -1249,422 +935,9 @@
 
   <footer>
 
-    © 2026 5IVE WORLD •
-    ALL RIGHTS RESERVED
+    © 2026 5IVE WORLD • ALL RIGHTS RESERVED
 
   </footer>
-
-
-
-  <!-- =========================
-       CART OVERLAY
-  ========================= -->
-
-  <div
-    class="cart-overlay"
-    id="cart-overlay"
-    onclick="closeCart()"
-  ></div>
-
-
-
-  <!-- =========================
-       SLIDE OUT CART
-  ========================= -->
-
-  <div
-    class="cart-panel"
-    id="cart-panel"
-  >
-
-
-    <div class="cart-header">
-
-      <h2>
-        YOUR CART
-      </h2>
-
-
-      <button
-        class="close-cart"
-        onclick="closeCart()"
-      >
-        ×
-      </button>
-
-    </div>
-
-
-
-    <div
-      class="cart-items"
-      id="cart-items"
-    >
-
-      <p class="empty-cart">
-        YOUR CART IS EMPTY
-      </p>
-
-    </div>
-
-
-
-    <div class="cart-footer">
-
-
-      <div class="cart-total">
-
-        <span>
-          TOTAL
-        </span>
-
-
-        <span id="cart-total">
-          $0.00
-        </span>
-
-      </div>
-
-
-
-      <!-- BUY ON INSTAGRAM -->
-
-      <a
-        id="instagram-buy"
-        class="instagram-buy"
-        href="https://www.instagram.com/____offical5ive/"
-        target="_blank"
-      >
-        BUY ON INSTAGRAM
-      </a>
-
-
-      <p class="instagram-name">
-        DM US @____offical5ive TO BUY
-      </p>
-
-
-    </div>
-
-  </div>
-
-
-
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
-
-  <script>
-
-    let cart = [];
-
-
-    function addToCart(
-      name,
-      price,
-      image
-    ) {
-
-      const existingProduct =
-        cart.find(
-          item =>
-            item.name === name
-        );
-
-
-      if (existingProduct) {
-
-        existingProduct.quantity++;
-
-      }
-
-      else {
-
-        cart.push({
-
-          name: name,
-
-          price: price,
-
-          image: image,
-
-          quantity: 1
-
-        });
-
-      }
-
-
-      updateCart();
-
-      openCart();
-
-    }
-
-
-
-    function updateCart() {
-
-      const cartItems =
-        document.getElementById(
-          "cart-items"
-        );
-
-
-      const cartCount =
-        document.getElementById(
-          "cart-count"
-        );
-
-
-      const cartTotal =
-        document.getElementById(
-          "cart-total"
-        );
-
-
-      cartItems.innerHTML = "";
-
-
-      if (cart.length === 0) {
-
-        cartItems.innerHTML =
-          '<p class="empty-cart">YOUR CART IS EMPTY</p>';
-
-
-        cartCount.textContent =
-          "0";
-
-
-        cartTotal.textContent =
-          "$0.00";
-
-
-        return;
-
-      }
-
-
-      let total = 0;
-
-      let itemCount = 0;
-
-
-      cart.forEach(
-        (item, index) => {
-
-
-          total +=
-            item.price *
-            item.quantity;
-
-
-          itemCount +=
-            item.quantity;
-
-
-          cartItems.innerHTML += `
-
-            <div class="cart-item">
-
-
-              <img
-                src="${item.image}"
-                alt="${item.name}"
-              >
-
-
-              <div class="cart-item-info">
-
-
-                <div class="cart-item-name">
-
-                  ${item.name}
-
-                </div>
-
-
-                <div class="cart-item-price">
-
-                  $${item.price.toFixed(2)}
-
-                </div>
-
-
-                <div class="quantity-controls">
-
-
-                  <button
-                    onclick="changeQuantity(
-                      ${index},
-                      -1
-                    )"
-                  >
-                    −
-                  </button>
-
-
-                  <span>
-
-                    ${item.quantity}
-
-                  </span>
-
-
-                  <button
-                    onclick="changeQuantity(
-                      ${index},
-                      1
-                    )"
-                  >
-                    +
-                  </button>
-
-
-                </div>
-
-
-                <button
-                  class="remove-button"
-                  onclick="removeItem(
-                    ${index}
-                  )"
-                >
-
-                  REMOVE
-
-                </button>
-
-
-              </div>
-
-
-            </div>
-
-          `;
-
-        }
-      );
-
-
-      cartCount.textContent =
-        itemCount;
-
-
-      cartTotal.textContent =
-        "$" +
-        total.toFixed(2);
-
-    }
-
-
-
-    function changeQuantity(
-      index,
-      change
-    ) {
-
-      cart[index].quantity +=
-        change;
-
-
-      if (
-        cart[index].quantity <= 0
-      ) {
-
-        cart.splice(
-          index,
-          1
-        );
-
-      }
-
-
-      updateCart();
-
-    }
-
-
-
-    function removeItem(
-      index
-    ) {
-
-      cart.splice(
-        index,
-        1
-      );
-
-
-      updateCart();
-
-    }
-
-
-
-    function openCart() {
-
-      document
-        .getElementById(
-          "cart-panel"
-        )
-        .classList
-        .add(
-          "active"
-        );
-
-
-      document
-        .getElementById(
-          "cart-overlay"
-        )
-        .classList
-        .add(
-          "active"
-        );
-
-
-      document.body
-        .classList
-        .add(
-          "cart-open"
-        );
-
-    }
-
-
-
-    function closeCart() {
-
-      document
-        .getElementById(
-          "cart-panel"
-        )
-        .classList
-        .remove(
-          "active"
-        );
-
-
-      document
-        .getElementById(
-          "cart-overlay"
-        )
-        .classList
-        .remove(
-          "active"
-        );
-
-
-      document.body
-        .classList
-        .remove(
-          "cart-open"
-        );
-
-    }
-
-  </script>
 
 
 </body>
