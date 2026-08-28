@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>5IVE WORLD</title>
 
   <style>
-
     * {
       margin: 0;
       padding: 0;
@@ -21,29 +19,38 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #080808;
+      background: #050505;
       color: white;
     }
 
-    /* NAVIGATION */
+    body.cart-open {
+      overflow: hidden;
+    }
 
+    /* NAVIGATION */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
       width: 100%;
       padding: 20px 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #080808;
-      border-bottom: 1px solid #333;
+      background: #050505;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .logo {
       font-size: 24px;
       font-weight: bold;
       letter-spacing: 5px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 25px;
     }
 
     .nav-links {
@@ -58,95 +65,116 @@
       font-weight: bold;
     }
 
+    .nav-links a:hover {
+      color: #aaa;
+    }
+
+    .cart-button {
+      background: transparent;
+      color: white;
+      border: 1px solid #555;
+      width: auto;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .cart-button:hover {
+      background: white;
+      color: black;
+    }
 
     /* HERO */
-
     .hero {
-      min-height: 65vh;
+      min-height: 70vh;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
       padding: 80px 20px;
-      background: radial-gradient(circle, #252525 0%, #080808 70%);
+      background: radial-gradient(
+        circle at center,
+        #252525 0%,
+        #111 45%,
+        #050505 80%
+      );
     }
 
     .hero h1 {
       font-size: clamp(50px, 10vw, 120px);
-      letter-spacing: 12px;
+      letter-spacing: 10px;
       margin-bottom: 20px;
     }
 
     .hero p {
       color: #aaa;
+      font-size: 14px;
       letter-spacing: 2px;
       margin-bottom: 30px;
     }
 
-    .hero-btn {
+    .hero-button {
       display: inline-block;
-      padding: 15px 35px;
       background: white;
       color: black;
       text-decoration: none;
+      padding: 15px 35px;
       font-weight: bold;
     }
 
-
     /* SECTIONS */
-
     section {
-      padding: 70px 6%;
+      padding: 80px 6%;
     }
 
-    .title {
-      font-size: 30px;
+    .section-title {
+      font-size: 32px;
       letter-spacing: 2px;
       margin-bottom: 10px;
     }
 
-    .subtitle {
+    .section-subtitle {
       color: #999;
+      font-size: 13px;
+      letter-spacing: 1px;
       margin-bottom: 35px;
-      font-size: 14px;
     }
 
-
-    /* PRODUCTS */
-
+    /* PRODUCT GRID */
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 20px;
     }
 
     .product-card {
-      background: #111;
+      background: #101010;
       border: 1px solid #333;
       overflow: hidden;
+      transition: 0.3s;
     }
 
     .product-card:hover {
+      transform: translateY(-5px);
       border-color: #777;
-      transform: translateY(-4px);
-      transition: 0.3s;
     }
 
     .product-card img {
       width: 100%;
-      height: 350px;
-      object-fit: contain;
-      background: #181818;
+      height: 330px;
+      object-fit: cover;
       display: block;
+      background: #1a1a1a;
     }
 
     .product-info {
-      padding: 18px;
+      padding: 20px;
     }
 
     .product-info h3 {
-      font-size: 16px;
-      margin-bottom: 10px;
+      font-size: 15px;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
     }
 
     .price {
@@ -157,10 +185,10 @@
     .details {
       color: #999;
       font-size: 12px;
-      margin-bottom: 15px;
+      margin-bottom: 18px;
     }
 
-    button {
+    .add-button {
       width: 100%;
       padding: 14px;
       border: none;
@@ -170,35 +198,37 @@
       cursor: pointer;
     }
 
-
-    /* DROP 02 */
-
-    .coming-section {
-      background: #101010;
+    .add-button:hover {
+      background: #ccc;
     }
 
-    .image-box {
+    /* DROP 02 */
+    .drop-section {
+      background: #0d0d0d;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+    }
+
+    .image-container {
       position: relative;
     }
 
-    .coming-label {
+    .coming-soon {
       position: absolute;
       top: 12px;
       left: 12px;
-      z-index: 2;
       background: white;
       color: black;
       padding: 8px 12px;
       font-size: 11px;
       font-weight: bold;
+      z-index: 10;
     }
 
-
     /* REVIEWS */
-
     .review-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 20px;
     }
 
@@ -210,49 +240,203 @@
 
     .review-card img {
       width: 100%;
-      height: auto;
-      min-height: 250px;
-      object-fit: contain;
+      height: 350px;
+      object-fit: cover;
       display: block;
-      background: #181818;
     }
 
-
     /* THANK YOU */
-
     .thank-you {
       text-align: center;
       padding: 100px 20px;
-      background: radial-gradient(circle, #222, #080808 70%);
+      background: radial-gradient(
+        circle at center,
+        #202020 0%,
+        #050505 75%
+      );
     }
 
     .thank-you h2 {
-      font-size: 35px;
+      font-size: clamp(30px, 5vw, 55px);
+      letter-spacing: 3px;
       margin-bottom: 20px;
     }
 
     .thank-you p {
-      color: #aaa;
-      max-width: 600px;
+      max-width: 650px;
       margin: auto;
+      color: #aaa;
       line-height: 1.8;
+      font-size: 15px;
     }
 
-
     /* FOOTER */
-
     footer {
       text-align: center;
       padding: 30px;
       color: #777;
       border-top: 1px solid #222;
+      font-size: 12px;
     }
 
+    /* CART OVERLAY */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+      z-index: 2000;
+    }
+
+    .cart-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* SLIDE OUT CART */
+    .cart-panel {
+      position: fixed;
+      top: 0;
+      right: -450px;
+      width: min(420px, 100%);
+      height: 100vh;
+      background: #0b0b0b;
+      border-left: 1px solid #333;
+      z-index: 3000;
+      transition: right 0.35s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-panel.active {
+      right: 0;
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 20px;
+      border-bottom: 1px solid #333;
+    }
+
+    .cart-header h2 {
+      font-size: 22px;
+      letter-spacing: 2px;
+    }
+
+    .close-cart {
+      width: auto;
+      background: transparent;
+      color: white;
+      font-size: 28px;
+      padding: 0 10px;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .empty-cart {
+      color: #999;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 15px;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #222;
+    }
+
+    .cart-item img {
+      width: 80px;
+      height: 100px;
+      object-fit: cover;
+      background: #222;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-name {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .cart-item-price {
+      color: #aaa;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .quantity-controls button {
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      background: #222;
+      color: white;
+      border: 1px solid #444;
+    }
+
+    .quantity-controls span {
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .remove-button {
+      background: transparent;
+      color: #999;
+      border: none;
+      padding: 0;
+      margin-top: 12px;
+      width: auto;
+      font-size: 12px;
+      text-decoration: underline;
+    }
+
+    .cart-footer {
+      padding: 20px;
+      border-top: 1px solid #333;
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .checkout-button {
+      width: 100%;
+      padding: 16px;
+      background: white;
+      color: black;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .checkout-button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
 
     /* MOBILE */
-
     @media (max-width: 600px) {
-
       nav {
         padding: 18px 5%;
       }
@@ -262,379 +446,592 @@
         letter-spacing: 3px;
       }
 
+      .nav-right {
+        gap: 10px;
+      }
+
       .nav-links {
-        gap: 12px;
+        gap: 10px;
       }
 
       .nav-links a {
         font-size: 10px;
       }
 
-      .product-card img {
-        height: 300px;
+      .cart-button {
+        padding: 8px 10px;
+        font-size: 10px;
       }
 
+      .product-card img,
+      .review-card img {
+        height: 300px;
+      }
     }
-
   </style>
-
 </head>
-
 
 <body>
 
-
   <!-- NAVIGATION -->
-
   <nav>
-
     <div class="logo">5IVE WORLD</div>
 
-    <div class="nav-links">
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#shop">SHOP</a>
+        <a href="#drop02">DROP 02</a>
+        <a href="#reviews">REVIEWS</a>
+      </div>
 
-      <a href="#shop">SHOP</a>
-
-      <a href="#drop">DROP 02</a>
-
-      <a href="#reviews">REVIEWS</a>
-
+      <button class="cart-button" onclick="openCart()">
+        🛒 CART (<span id="cart-count">0</span>)
+      </button>
     </div>
-
   </nav>
 
 
-
   <!-- HERO -->
-
   <section class="hero">
-
     <div>
-
       <h1>5IVE WORLD</h1>
-
       <p>MORE THAN A BRAND. IT'S A WORLD.</p>
-
-      <a href="#shop" class="hero-btn">SHOP NOW</a>
-
+      <a href="#shop" class="hero-button">SHOP NOW</a>
     </div>
-
   </section>
-
 
 
   <!-- SHOP -->
-
   <section id="shop">
 
-    <h2 class="title">SHOP THE COLLECTION</h2>
+    <h2 class="section-title">SHOP THE COLLECTION</h2>
 
-    <p class="subtitle">LIMITED STOCK • 5IVE WORLD</p>
-
+    <p class="section-subtitle">
+      LIMITED STOCK • 5IVE WORLD
+    </p>
 
     <div class="product-grid">
 
-
       <div class="product-card">
-
         <img src="short-black.jpeg" alt="Black 5IVE Shorts">
-
         <div class="product-info">
-
           <h3>BLACK 5IVE SHORTS</h3>
-
           <p class="price">$50</p>
-
           <p class="details">LIMITED STOCK</p>
-
-          <button>ADD TO CART</button>
-
+          <button class="add-button"
+            onclick="addToCart('BLACK 5IVE SHORTS', 50, 'short-black.jpeg')">
+            ADD TO CART
+          </button>
         </div>
-
       </div>
 
 
-
       <div class="product-card">
-
         <img src="short-gray-blue.jpeg" alt="Gray Blue 5IVE Shorts">
-
         <div class="product-info">
-
           <h3>GRAY BLUE 5IVE SHORTS</h3>
-
           <p class="price">$50</p>
-
           <p class="details">LIMITED STOCK</p>
-
-          <button>ADD TO CART</button>
-
+          <button class="add-button"
+            onclick="addToCart('GRAY BLUE 5IVE SHORTS', 50, 'short-gray-blue.jpeg')">
+            ADD TO CART
+          </button>
         </div>
-
       </div>
 
 
-
       <div class="product-card">
-
         <img src="short-gray.jpeg" alt="Gray 5IVE Shorts">
-
         <div class="product-info">
-
-          <h3>5IVE SHORTS</h3>
-
+          <h3>GRAY 5IVE SHORTS</h3>
           <p class="price">$50</p>
-
           <p class="details">LIMITED STOCK</p>
-
-          <button>ADD TO CART</button>
-
+          <button class="add-button"
+            onclick="addToCart('GRAY 5IVE SHORTS', 50, 'short-gray.jpeg')">
+            ADD TO CART
+          </button>
         </div>
-
       </div>
-
 
 
       <div class="product-card">
-
-        <img src="short-pink.jpeg" alt="Pink 5IVE Shorts">
-
+        <img src="short-group.jpeg" alt="5IVE Shorts Collection">
         <div class="product-info">
-
-          <h3>PINK 5IVE SHORTS</h3>
-
+          <h3>5IVE SHORTS COLLECTION</h3>
           <p class="price">$50</p>
-
           <p class="details">LIMITED STOCK</p>
-
-          <button>ADD TO CART</button>
-
+          <button class="add-button"
+            onclick="addToCart('5IVE SHORTS COLLECTION', 50, 'short-group.jpeg')">
+            ADD TO CART
+          </button>
         </div>
-
       </div>
 
+
+      <div class="product-card">
+        <img src="short-pink.jpeg.PNG" alt="Pink 5IVE Shorts">
+        <div class="product-info">
+          <h3>PINK 5IVE SHORTS</h3>
+          <p class="price">$50</p>
+          <p class="details">LIMITED STOCK</p>
+          <button class="add-button"
+            onclick="addToCart('PINK 5IVE SHORTS', 50, 'short-pink.jpeg.PNG')">
+            ADD TO CART
+          </button>
+        </div>
+      </div>
+
+
+      <div class="product-card">
+        <img src="short-red.jpeg" alt="Red 5IVE Shorts">
+        <div class="product-info">
+          <h3>RED 5IVE SHORTS</h3>
+          <p class="price">$50</p>
+          <p class="details">LIMITED STOCK</p>
+          <button class="add-button"
+            onclick="addToCart('RED 5IVE SHORTS', 50, 'short-red.jpeg')">
+            ADD TO CART
+          </button>
+        </div>
+      </div>
+
+
+      <div class="product-card">
+        <img src="short-white.jpeg" alt="White 5IVE Shorts">
+        <div class="product-info">
+          <h3>WHITE 5IVE SHORTS</h3>
+          <p class="price">$50</p>
+          <p class="details">LIMITED STOCK</p>
+          <button class="add-button"
+            onclick="addToCart('WHITE 5IVE SHORTS', 50, 'short-white.jpeg')">
+            ADD TO CART
+          </button>
+        </div>
+      </div>
 
     </div>
-
   </section>
-
 
 
   <!-- DROP 02 -->
+  <section class="drop-section" id="drop02">
 
-  <section class="coming-section" id="drop">
+    <h2 class="section-title">DROP 02</h2>
 
-    <h2 class="title">DROP 02</h2>
-
-    <p class="subtitle">NEW 5IVE HOODIES • COMING SOON</p>
-
+    <p class="section-subtitle">
+      NEW 5IVE HOODIES • COMING SOON
+    </p>
 
     <div class="product-grid">
 
-
       <div class="product-card">
-
-        <div class="image-box">
-
-          <div class="coming-label">COMING SOON</div>
-
+        <div class="image-container">
+          <div class="coming-soon">COMING SOON</div>
           <img src="blue-hoodie.jpeg.png" alt="Blue 5IVE Hoodie">
-
         </div>
-
         <div class="product-info">
-
           <h3>BLUE 5IVE HOODIE</h3>
-
           <p class="price">COMING SOON</p>
-
         </div>
-
       </div>
 
 
-
       <div class="product-card">
-
-        <div class="image-box">
-
-          <div class="coming-label">COMING SOON</div>
-
+        <div class="image-container">
+          <div class="coming-soon">COMING SOON</div>
           <img src="green-hoodie.jpeg.png" alt="Green 5IVE Hoodie">
-
         </div>
-
         <div class="product-info">
-
           <h3>GREEN 5IVE HOODIE</h3>
-
           <p class="price">COMING SOON</p>
-
         </div>
-
       </div>
 
 
-
       <div class="product-card">
-
-        <div class="image-box">
-
-          <div class="coming-label">COMING SOON</div>
-
+        <div class="image-container">
+          <div class="coming-soon">COMING SOON</div>
           <img src="pink-hoodie.png" alt="Pink 5IVE Hoodie">
-
         </div>
-
         <div class="product-info">
-
           <h3>PINK 5IVE HOODIE</h3>
-
           <p class="price">COMING SOON</p>
-
         </div>
-
       </div>
 
 
-
       <div class="product-card">
-
-        <div class="image-box">
-
-          <div class="coming-label">COMING SOON</div>
-
+        <div class="image-container">
+          <div class="coming-soon">COMING SOON</div>
           <img src="purple-hoodie.jpeg.png" alt="Purple 5IVE Hoodie">
-
         </div>
-
         <div class="product-info">
-
           <h3>PURPLE 5IVE HOODIE</h3>
-
           <p class="price">COMING SOON</p>
-
         </div>
-
       </div>
-
 
 
       <div class="product-card">
-
-        <div class="image-box">
-
-          <div class="coming-label">COMING SOON</div>
-
+        <div class="image-container">
+          <div class="coming-soon">COMING SOON</div>
           <img src="red-hoodie.jpeg.png" alt="Red 5IVE Hoodie">
-
         </div>
-
         <div class="product-info">
-
           <h3>RED 5IVE HOODIE</h3>
-
           <p class="price">COMING SOON</p>
-
         </div>
-
       </div>
-
 
     </div>
-
   </section>
-
 
 
   <!-- REVIEWS -->
-
   <section id="reviews">
 
-    <h2 class="title">CUSTOMER REVIEWS</h2>
+    <h2 class="section-title">CUSTOMER REVIEWS</h2>
 
-    <p class="subtitle">REAL SUPPORT FROM THE 5IVE WORLD FAMILY</p>
-
+    <p class="section-subtitle">
+      REAL SUPPORT FROM THE 5IVE WORLD FAMILY
+    </p>
 
     <div class="review-grid">
 
-
       <div class="review-card">
-
-        <img src="review1.jpeg.PNG" alt="Customer Review">
-
+        <img src="review1.jpeg.PNG" alt="Customer Review 1">
       </div>
 
-
       <div class="review-card">
-
-        <img src="review2.jpeg.PNG" alt="Customer Review">
-
+        <img src="review2.jpeg.PNG" alt="Customer Review 2">
       </div>
 
-
       <div class="review-card">
-
-        <img src="review3.jpeg.PNG" alt="Customer Review">
-
+        <img src="review3.jpeg.PNG" alt="Customer Review 3">
       </div>
 
-
       <div class="review-card">
-
-        <img src="review4.jpeg.PNG" alt="Customer Review">
-
+        <img src="review4.jpeg.PNG" alt="Customer Review 4">
       </div>
 
-
       <div class="review-card">
-
-        <img src="review5.jpeg.PNG" alt="Customer Review">
-
+        <img src="review5.jpeg.PNG" alt="Customer Review 5">
       </div>
 
-
       <div class="review-card">
-
-        <img src="review6.jpeg.PNG" alt="Customer Review">
-
+        <img src="review6.jpeg.PNG" alt="Customer Review 6">
       </div>
-
 
     </div>
-
   </section>
-
 
 
   <!-- THANK YOU -->
-
   <section class="thank-you">
-
     <h2>THANK YOU FOR YOUR SUPPORT</h2>
 
     <p>
-
       Thank you to everyone who supports 5IVE WORLD.
       Every order, share, and message means a lot.
-      This is only the beginning.
-
+      This is only the beginning. More drops are coming soon.
       Welcome to the 5IVE WORLD.
-
     </p>
-
   </section>
 
 
-
-  <!-- FOOTER -->
-
   <footer>
-
     © 2026 5IVE WORLD • ALL RIGHTS RESERVED
-
   </footer>
 
 
-</body>
+  <!-- CART OVERLAY -->
+  <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
 
+
+  <!-- SLIDE OUT CART -->
+  <div class="cart-panel" id="cart-panel">
+
+    <div class="cart-header">
+      <h2>YOUR CART</h2>
+
+      <button class="close-cart" onclick="closeCart()">
+        ×
+      </button>
+    </div>
+
+
+    <div class="cart-items" id="cart-items">
+      <p class="empty-cart">
+        YOUR CART IS EMPTY
+      </p>
+    </div>
+
+
+    <div class="cart-footer">
+
+      <div class="cart-total">
+        <span>TOTAL</span>
+        <span id="cart-total">$0.00</span>
+      </div>
+
+
+      <button
+        class="checkout-button"
+        id="checkout-button"
+        onclick="checkout()"
+        disabled
+      >
+        CHECKOUT
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    let cart = [];
+
+
+    function addToCart(name, price, image) {
+
+      const existingProduct = cart.find(
+        item => item.name === name
+      );
+
+
+      if (existingProduct) {
+
+        existingProduct.quantity++;
+
+      } else {
+
+        cart.push({
+          name: name,
+          price: price,
+          image: image,
+          quantity: 1
+        });
+
+      }
+
+
+      updateCart();
+
+      openCart();
+
+    }
+
+
+    function updateCart() {
+
+      const cartItems =
+        document.getElementById("cart-items");
+
+      const cartCount =
+        document.getElementById("cart-count");
+
+      const cartTotal =
+        document.getElementById("cart-total");
+
+      const checkoutButton =
+        document.getElementById("checkout-button");
+
+
+      cartItems.innerHTML = "";
+
+
+      if (cart.length === 0) {
+
+        cartItems.innerHTML =
+          '<p class="empty-cart">YOUR CART IS EMPTY</p>';
+
+        cartCount.textContent = "0";
+
+        cartTotal.textContent = "$0.00";
+
+        checkoutButton.disabled = true;
+
+        return;
+
+      }
+
+
+      let total = 0;
+
+      let itemCount = 0;
+
+
+      cart.forEach((item, index) => {
+
+        total +=
+          item.price * item.quantity;
+
+        itemCount +=
+          item.quantity;
+
+
+        cartItems.innerHTML += `
+
+          <div class="cart-item">
+
+            <img
+              src="${item.image}"
+              alt="${item.name}"
+            >
+
+
+            <div class="cart-item-info">
+
+              <div class="cart-item-name">
+                ${item.name}
+              </div>
+
+
+              <div class="cart-item-price">
+                $${item.price.toFixed(2)}
+              </div>
+
+
+              <div class="quantity-controls">
+
+                <button
+                  onclick="changeQuantity(${index}, -1)"
+                >
+                  −
+                </button>
+
+
+                <span>
+                  ${item.quantity}
+                </span>
+
+
+                <button
+                  onclick="changeQuantity(${index}, 1)"
+                >
+                  +
+                </button>
+
+              </div>
+
+
+              <button
+                class="remove-button"
+                onclick="removeItem(${index})"
+              >
+                REMOVE
+              </button>
+
+            </div>
+
+          </div>
+
+        `;
+
+      });
+
+
+      cartCount.textContent =
+        itemCount;
+
+
+      cartTotal.textContent =
+        "$" + total.toFixed(2);
+
+
+      checkoutButton.disabled =
+        false;
+
+    }
+
+
+    function changeQuantity(index, change) {
+
+      cart[index].quantity +=
+        change;
+
+
+      if (
+        cart[index].quantity <= 0
+      ) {
+
+        cart.splice(index, 1);
+
+      }
+
+
+      updateCart();
+
+    }
+
+
+    function removeItem(index) {
+
+      cart.splice(index, 1);
+
+      updateCart();
+
+    }
+
+
+    function openCart() {
+
+      document
+        .getElementById("cart-panel")
+        .classList.add("active");
+
+
+      document
+        .getElementById("cart-overlay")
+        .classList.add("active");
+
+
+      document.body
+        .classList.add("cart-open");
+
+    }
+
+
+    function closeCart() {
+
+      document
+        .getElementById("cart-panel")
+        .classList.remove("active");
+
+
+      document
+        .getElementById("cart-overlay")
+        .classList.remove("active");
+
+
+      document.body
+        .classList.remove("cart-open");
+
+    }
+
+
+    function checkout() {
+
+      if (cart.length === 0) {
+
+        alert(
+          "YOUR CART IS EMPTY"
+        );
+
+        return;
+
+      }
+
+
+      alert(
+        "CART IS READY. NEXT WE WILL CONNECT YOUR STRIPE PAYMENT."
+      );
+
+    }
+
+  </script>
+
+</body>
 </html>
