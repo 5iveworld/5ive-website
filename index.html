@@ -25,22 +25,20 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    /* =========================
-       NAVIGATION
-    ========================= */
+    /* NAVBAR */
 
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
 
-      padding: 20px 6%;
-
       display: flex;
       justify-content: space-between;
       align-items: center;
 
-      background: #050505;
+      padding: 20px 6%;
+
+      background: rgba(5, 5, 5, 0.96);
       border-bottom: 1px solid #222;
     }
 
@@ -50,15 +48,10 @@
       letter-spacing: 5px;
     }
 
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
     nav {
       display: flex;
-      gap: 18px;
+      align-items: center;
+      gap: 25px;
     }
 
     nav a {
@@ -68,122 +61,137 @@
       font-weight: bold;
     }
 
-    .instagram-header {
+    .instagram {
       background: white;
       color: black;
-      padding: 10px 15px;
-      text-decoration: none;
-      font-size: 11px;
-      font-weight: bold;
+      padding: 12px 18px;
     }
 
 
-    /* =========================
-       HERO
-    ========================= */
+    /* HERO */
 
     .hero {
-      min-height: 70vh;
+      min-height: 75vh;
 
       display: flex;
       justify-content: center;
       align-items: center;
 
       text-align: center;
-
-      padding: 80px 20px;
+      padding: 50px 20px;
 
       background:
         radial-gradient(
           circle at center,
           #252525 0%,
-          #111 45%,
+          #101010 45%,
           #050505 80%
         );
     }
 
     .hero h1 {
-      font-size: clamp(50px, 10vw, 120px);
-      letter-spacing: 10px;
+      font-size: clamp(55px, 11vw, 140px);
+      letter-spacing: 12px;
       margin-bottom: 20px;
     }
 
     .hero p {
       color: #aaa;
-      font-size: 14px;
-      letter-spacing: 2px;
-      margin-bottom: 30px;
+      letter-spacing: 3px;
+      font-size: 13px;
+      margin-bottom: 35px;
     }
 
-    .hero-button {
+    .shop-button {
       display: inline-block;
-      padding: 15px 35px;
+
+      padding: 16px 40px;
 
       background: white;
       color: black;
 
       text-decoration: none;
       font-weight: bold;
+      font-size: 12px;
     }
 
 
-    /* =========================
-       SECTIONS
-    ========================= */
+    /* SECTIONS */
 
     section {
-      padding: 80px 6%;
+      padding: 90px 6%;
     }
 
     .section-title {
-      font-size: 32px;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
+      font-size: 35px;
+      letter-spacing: 3px;
+      margin-bottom: 12px;
     }
 
-    .section-subtitle {
+    .section-text {
       color: #999;
       font-size: 13px;
-      letter-spacing: 1px;
-      margin-bottom: 35px;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
     }
 
 
-    /* =========================
-       PRODUCT GRID
-    ========================= */
+    /* PRODUCT GRID */
 
     .product-grid {
       display: grid;
 
       grid-template-columns:
-        repeat(auto-fit, minmax(240px, 1fr));
+        repeat(auto-fit, minmax(250px, 1fr));
 
-      gap: 20px;
+      gap: 22px;
     }
 
     .product-card {
       background: #101010;
-      border: 1px solid #333;
+      border: 1px solid #292929;
+
       overflow: hidden;
+
       transition: 0.3s;
     }
 
     .product-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
       border-color: #777;
+    }
+
+    .image-box {
+      position: relative;
     }
 
     .product-card img {
       width: 100%;
-      height: 330px;
+      height: 380px;
+
       object-fit: cover;
       display: block;
-      background: #1a1a1a;
+    }
+
+    .coming-soon {
+      position: absolute;
+
+      top: 12px;
+      left: 12px;
+
+      background: white;
+      color: black;
+
+      padding: 8px 12px;
+
+      font-size: 10px;
+      font-weight: bold;
+
+      z-index: 2;
     }
 
     .product-info {
-      padding: 20px;
+      padding: 22px;
     }
 
     .product-info h3 {
@@ -192,65 +200,45 @@
       margin-bottom: 12px;
     }
 
-    .price {
-      font-size: 18px;
-      margin-bottom: 10px;
+    .product-info p {
+      color: #aaa;
+      font-size: 13px;
     }
 
-    .details {
-      color: #999;
-      font-size: 12px;
-      margin-bottom: 18px;
-    }
 
-    .buy-button {
-      display: block;
-      width: 100%;
-      padding: 14px;
+    /* ABOUT */
 
-      background: white;
-      color: black;
-
+    .about {
       text-align: center;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 12px;
+
+      padding: 120px 20px;
+
+      background:
+        radial-gradient(
+          circle at center,
+          #202020 0%,
+          #050505 75%
+        );
+    }
+
+    .about h2 {
+      font-size: clamp(35px, 6vw, 65px);
+      letter-spacing: 5px;
+      margin-bottom: 25px;
+    }
+
+    .about p {
+      max-width: 650px;
+
+      margin: auto;
+
+      color: #aaa;
+      line-height: 1.8;
+      font-size: 14px;
     }
 
 
-    /* =========================
-       COMING SOON
-    ========================= */
-
-    .drop-section {
-      background: #0d0d0d;
-      border-top: 1px solid #222;
-      border-bottom: 1px solid #222;
-    }
-
-    .image-container {
-      position: relative;
-    }
-
-    .coming-soon {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      z-index: 10;
-
-      padding: 8px 12px;
-
-      background: white;
-      color: black;
-
-      font-size: 11px;
-      font-weight: bold;
-    }
-
-
-    /* =========================
-       REVIEWS
-    ========================= */
+    /* REVIEWS */
 
     .review-grid {
       display: grid;
@@ -263,7 +251,8 @@
 
     .review-card {
       background: #111;
-      border: 1px solid #333;
+      border: 1px solid #292929;
+
       overflow: hidden;
     }
 
@@ -273,57 +262,24 @@
 
       object-fit: cover;
       display: block;
-      background: #1a1a1a;
     }
 
 
-    /* =========================
-       THANK YOU
-    ========================= */
-
-    .thank-you {
-      text-align: center;
-
-      padding: 100px 20px;
-
-      background:
-        radial-gradient(
-          circle at center,
-          #202020 0%,
-          #050505 75%
-        );
-    }
-
-    .thank-you h2 {
-      font-size: clamp(30px, 5vw, 55px);
-      letter-spacing: 3px;
-      margin-bottom: 20px;
-    }
-
-    .thank-you p {
-      max-width: 650px;
-      margin: auto;
-      color: #aaa;
-      line-height: 1.8;
-    }
-
-
-    /* =========================
-       FOOTER
-    ========================= */
+    /* FOOTER */
 
     footer {
       text-align: center;
-      padding: 30px;
-      color: #777;
+
+      padding: 35px;
+
       border-top: 1px solid #222;
+
+      color: #777;
       font-size: 12px;
     }
 
 
-    /* =========================
-       MOBILE
-    ========================= */
+    /* MOBILE */
 
     @media (max-width: 650px) {
 
@@ -336,21 +292,25 @@
         letter-spacing: 3px;
       }
 
-      nav {
+      nav a:not(.instagram) {
         display: none;
       }
 
-      .instagram-header {
+      nav {
+        gap: 10px;
+      }
+
+      .instagram {
+        padding: 10px 12px;
         font-size: 9px;
-        padding: 9px 10px;
+      }
+
+      section {
+        padding: 70px 5%;
       }
 
       .product-card img {
-        height: 300px;
-      }
-
-      .review-card img {
-        height: 300px;
+        height: 350px;
       }
 
     }
@@ -363,7 +323,7 @@
 <body>
 
 
-  <!-- NAVIGATION -->
+  <!-- NAVBAR -->
 
   <header>
 
@@ -371,25 +331,25 @@
       5IVE WORLD
     </div>
 
+    <nav>
 
-    <div class="header-right">
+      <a href="#drop02">
+        DROP 02
+      </a>
 
-      <nav>
-        <a href="#shop">SHOP</a>
-        <a href="#drop02">DROP 02</a>
-        <a href="#reviews">REVIEWS</a>
-      </nav>
-
+      <a href="#reviews">
+        REVIEWS
+      </a>
 
       <a
-        class="instagram-header"
+        class="instagram"
         href="https://www.instagram.com/____offical5ive/"
         target="_blank"
       >
-        BUY ON INSTAGRAM
+        BUY ON IG
       </a>
 
-    </div>
+    </nav>
 
   </header>
 
@@ -401,257 +361,20 @@
 
     <div>
 
-      <h1>5IVE WORLD</h1>
+      <h1>
+        5IVE WORLD
+      </h1>
 
       <p>
         MORE THAN A BRAND. IT'S A WORLD.
       </p>
 
       <a
-        href="#shop"
-        class="hero-button"
+        href="#drop02"
+        class="shop-button"
       >
-        SHOP NOW
+        VIEW DROP 02
       </a>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- SHOP -->
-
-  <section id="shop">
-
-    <h2 class="section-title">
-      SHOP THE COLLECTION
-    </h2>
-
-    <p class="section-subtitle">
-      LIMITED STOCK • 5IVE WORLD
-    </p>
-
-
-    <div class="product-grid">
-
-
-      <!-- BLACK SHORTS -->
-
-      <div class="product-card">
-
-        <img
-          src="short-black.jpeg"
-          alt="Black 5IVE Shorts"
-        >
-
-        <div class="product-info">
-
-          <h3>BLACK 5IVE SHORTS</h3>
-
-          <p class="price">$50</p>
-
-          <p class="details">LIMITED STOCK</p>
-
-          <a
-            class="buy-button"
-            href="https://www.instagram.com/____offical5ive/"
-            target="_blank"
-          >
-            BUY ON INSTAGRAM
-          </a>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- GRAY BLUE SHORTS -->
-
-      <div class="product-card">
-
-        <img
-          src="short-gray-blue.jpeg"
-          alt="Gray Blue 5IVE Shorts"
-        >
-
-        <div class="product-info">
-
-          <h3>GRAY BLUE 5IVE SHORTS</h3>
-
-          <p class="price">$50</p>
-
-          <p class="details">LIMITED STOCK</p>
-
-          <a
-            class="buy-button"
-            href="https://www.instagram.com/____offical5ive/"
-            target="_blank"
-          >
-            BUY ON INSTAGRAM
-          </a>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- GRAY SHORTS -->
-
-      <div class="product-card">
-
-        <img
-          src="short-gray.jpeg"
-          alt="Gray 5IVE Shorts"
-        >
-
-        <div class="product-info">
-
-          <h3>GRAY 5IVE SHORTS</h3>
-
-          <p class="price">$50</p>
-
-          <p class="details">LIMITED STOCK</p>
-
-          <a
-            class="buy-button"
-            href="https://www.instagram.com/____offical5ive/"
-            target="_blank"
-          >
-            BUY ON INSTAGRAM
-          </a>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- GREEN SHORTS -->
-      <!-- YOUR FILE IS NAMED short-group.jpeg -->
-
-      <div class="product-card">
-
-        <img
-          src="short-group.jpeg"
-          alt="Green 5IVE Shorts"
-        >
-
-        <div class="product-info">
-
-          <h3>GREEN 5IVE SHORTS</h3>
-
-          <p class="price">$50</p>
-
-          <p class="details">LIMITED STOCK</p>
-
-          <a
-            class="buy-button"
-            href="https://www.instagram.com/____offical5ive/"
-            target="_blank"
-          >
-            BUY ON INSTAGRAM
-          </a>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- PINK SHORTS -->
-
-      <div class="product-card">
-
-        <img
-          src="short-pink.jpeg.PNG"
-          alt="Pink 5IVE Shorts"
-        >
-
-        <div class="product-info">
-
-          <h3>PINK 5IVE SHORTS</h3>
-
-          <p class="price">$50</p>
-
-          <p class="details">LIMITED STOCK</p>
-
-          <a
-            class="buy-button"
-            href="https://www.instagram.com/____offical5ive/"
-            target="_blank"
-          >
-            BUY ON INSTAGRAM
-          </a>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- RED SHORTS -->
-
-      <div class="product-card">
-
-        <img
-          src="short-red.jpeg"
-          alt="Red 5IVE Shorts"
-        >
-
-        <div class="product-info">
-
-          <h3>RED 5IVE SHORTS</h3>
-
-          <p class="price">$50</p>
-
-          <p class="details">LIMITED STOCK</p>
-
-          <a
-            class="buy-button"
-            href="https://www.instagram.com/____offical5ive/"
-            target="_blank"
-          >
-            BUY ON INSTAGRAM
-          </a>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- WHITE SHORTS -->
-
-      <div class="product-card">
-
-        <img
-          src="short-white.jpeg"
-          alt="White 5IVE Shorts"
-        >
-
-        <div class="product-info">
-
-          <h3>WHITE 5IVE SHORTS</h3>
-
-          <p class="price">$50</p>
-
-          <p class="details">LIMITED STOCK</p>
-
-          <a
-            class="buy-button"
-            href="https://www.instagram.com/____offical5ive/"
-            target="_blank"
-          >
-            BUY ON INSTAGRAM
-          </a>
-
-        </div>
-
-      </div>
-
 
     </div>
 
@@ -661,16 +384,13 @@
 
   <!-- DROP 02 -->
 
-  <section
-    class="drop-section"
-    id="drop02"
-  >
+  <section id="drop02">
 
     <h2 class="section-title">
       DROP 02
     </h2>
 
-    <p class="section-subtitle">
+    <p class="section-text">
       NEW 5IVE HOODIES • COMING SOON
     </p>
 
@@ -678,11 +398,11 @@
     <div class="product-grid">
 
 
-      <!-- BLUE HOODIE -->
+      <!-- BLUE -->
 
       <div class="product-card">
 
-        <div class="image-container">
+        <div class="image-box">
 
           <div class="coming-soon">
             COMING SOON
@@ -697,9 +417,13 @@
 
         <div class="product-info">
 
-          <h3>BLUE 5IVE HOODIE</h3>
+          <h3>
+            BLUE 5IVE HOODIE
+          </h3>
 
-          <p class="price">COMING SOON</p>
+          <p>
+            COMING SOON
+          </p>
 
         </div>
 
@@ -707,11 +431,44 @@
 
 
 
-      <!-- GREEN HOODIE -->
+      <!-- BROWN -->
 
       <div class="product-card">
 
-        <div class="image-container">
+        <div class="image-box">
+
+          <div class="coming-soon">
+            COMING SOON
+          </div>
+
+          <img
+            src="brown-hoodie.jpeg.png"
+            alt="Brown 5IVE Hoodie"
+          >
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>
+            BROWN 5IVE HOODIE
+          </h3>
+
+          <p>
+            COMING SOON
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- GREEN -->
+
+      <div class="product-card">
+
+        <div class="image-box">
 
           <div class="coming-soon">
             COMING SOON
@@ -726,9 +483,13 @@
 
         <div class="product-info">
 
-          <h3>GREEN 5IVE HOODIE</h3>
+          <h3>
+            GREEN 5IVE HOODIE
+          </h3>
 
-          <p class="price">COMING SOON</p>
+          <p>
+            COMING SOON
+          </p>
 
         </div>
 
@@ -736,11 +497,77 @@
 
 
 
-      <!-- PINK HOODIE -->
+      <!-- LIME GREEN -->
 
       <div class="product-card">
 
-        <div class="image-container">
+        <div class="image-box">
+
+          <div class="coming-soon">
+            COMING SOON
+          </div>
+
+          <img
+            src="lime-green-hoodie.jpeg.png"
+            alt="Lime Green 5IVE Hoodie"
+          >
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>
+            LIME GREEN 5IVE HOODIE
+          </h3>
+
+          <p>
+            COMING SOON
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ORANGE -->
+
+      <div class="product-card">
+
+        <div class="image-box">
+
+          <div class="coming-soon">
+            COMING SOON
+          </div>
+
+          <img
+            src="orange-hoodie.jpeg.png"
+            alt="Orange 5IVE Hoodie"
+          >
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>
+            ORANGE 5IVE HOODIE
+          </h3>
+
+          <p>
+            COMING SOON
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- PINK -->
+
+      <div class="product-card">
+
+        <div class="image-box">
 
           <div class="coming-soon">
             COMING SOON
@@ -755,9 +582,13 @@
 
         <div class="product-info">
 
-          <h3>PINK 5IVE HOODIE</h3>
+          <h3>
+            PINK 5IVE HOODIE
+          </h3>
 
-          <p class="price">COMING SOON</p>
+          <p>
+            COMING SOON
+          </p>
 
         </div>
 
@@ -765,11 +596,11 @@
 
 
 
-      <!-- PURPLE HOODIE -->
+      <!-- PURPLE -->
 
       <div class="product-card">
 
-        <div class="image-container">
+        <div class="image-box">
 
           <div class="coming-soon">
             COMING SOON
@@ -784,9 +615,13 @@
 
         <div class="product-info">
 
-          <h3>PURPLE 5IVE HOODIE</h3>
+          <h3>
+            PURPLE 5IVE HOODIE
+          </h3>
 
-          <p class="price">COMING SOON</p>
+          <p>
+            COMING SOON
+          </p>
 
         </div>
 
@@ -794,11 +629,44 @@
 
 
 
-      <!-- RED HOODIE -->
+      <!-- ROYAL BLUE -->
 
       <div class="product-card">
 
-        <div class="image-container">
+        <div class="image-box">
+
+          <div class="coming-soon">
+            COMING SOON
+          </div>
+
+          <img
+            src="royal-blue-hoodie.jpeg.png"
+            alt="Royal Blue 5IVE Hoodie"
+          >
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>
+            ROYAL BLUE 5IVE HOODIE
+          </h3>
+
+          <p>
+            COMING SOON
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- RED -->
+
+      <div class="product-card">
+
+        <div class="image-box">
 
           <div class="coming-soon">
             COMING SOON
@@ -813,9 +681,13 @@
 
         <div class="product-info">
 
-          <h3>RED 5IVE HOODIE</h3>
+          <h3>
+            RED 5IVE HOODIE
+          </h3>
 
-          <p class="price">COMING SOON</p>
+          <p>
+            COMING SOON
+          </p>
 
         </div>
 
@@ -828,7 +700,26 @@
 
 
 
-  <!-- CUSTOMER REVIEWS -->
+  <!-- ABOUT -->
+
+  <section class="about">
+
+    <h2>
+      WELCOME TO THE 5IVE WORLD
+    </h2>
+
+    <p>
+      Thank you to everyone supporting 5IVE WORLD.
+      Every order, share, and message means something.
+      This is only the beginning.
+      More drops are coming soon.
+    </p>
+
+  </section>
+
+
+
+  <!-- REVIEWS -->
 
   <section id="reviews">
 
@@ -836,8 +727,8 @@
       CUSTOMER REVIEWS
     </h2>
 
-    <p class="section-subtitle">
-      THANK YOU FOR SUPPORTING 5IVE WORLD
+    <p class="section-text">
+      REAL SUPPORT FROM THE 5IVE WORLD
     </p>
 
 
@@ -848,7 +739,7 @@
 
         <img
           src="review1.jpeg.PNG"
-          alt="Customer Review 1"
+          alt="Customer Review"
         >
 
       </div>
@@ -858,7 +749,7 @@
 
         <img
           src="review2.jpeg.PNG"
-          alt="Customer Review 2"
+          alt="Customer Review"
         >
 
       </div>
@@ -868,7 +759,7 @@
 
         <img
           src="review3.jpeg.PNG"
-          alt="Customer Review 3"
+          alt="Customer Review"
         >
 
       </div>
@@ -878,7 +769,7 @@
 
         <img
           src="review4.jpeg.PNG"
-          alt="Customer Review 4"
+          alt="Customer Review"
         >
 
       </div>
@@ -888,7 +779,7 @@
 
         <img
           src="review5.jpeg.PNG"
-          alt="Customer Review 5"
+          alt="Customer Review"
         >
 
       </div>
@@ -898,34 +789,13 @@
 
         <img
           src="review6.jpeg.PNG"
-          alt="Customer Review 6"
+          alt="Customer Review"
         >
 
       </div>
 
 
     </div>
-
-  </section>
-
-
-
-  <!-- THANK YOU -->
-
-  <section class="thank-you">
-
-    <h2>
-      THANK YOU FOR YOUR SUPPORT
-    </h2>
-
-    <p>
-      Thank you to everyone who supports
-      5IVE WORLD. Every order, share,
-      and message means a lot.
-      This is only the beginning.
-      More drops are coming soon.
-      Welcome to the 5IVE WORLD.
-    </p>
 
   </section>
 
